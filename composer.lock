@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5091785fe4770acfa94194de1625ad20",
+    "hash": "a57cb196b554101ef511bcbcabc5671b",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1346,6 +1346,17 @@
             "time": "2015-04-21 07:52:05"
         },
         {
+            "name": "snap-project/app-builder",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snap-project/app-builder.git",
+                "reference": "develop"
+            },
+            "type": "library",
+            "time": "2015-04-27 21:07:56"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.0",
             "source": {
@@ -1908,7 +1919,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "snap-project/app-builder": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -19,6 +19,18 @@
                     "type": "file"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "snap-project/app-builder",
+                "version": "dev-develop",
+                "source": {
+                    "url": "https://github.com/snap-project/app-builder.git",
+                    "type": "git",
+                    "reference": "develop"
+                }
+            }
         }
     ],
     "require": {
@@ -38,7 +50,8 @@
         "braincrafted/bootstrap-bundle": "^2.1",
         "twbs/bootstrap": "^3.3",
         "jquery/jquery":  "1.11.*",
-        "oyejorge/less.php": "v1.7.0.3"
+        "oyejorge/less.php": "v1.7.0.3",
+        "snap-project/app-builder": "dev-develop"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -55,7 +68,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
+            "./scripts/install-editor.sh"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -65,7 +79,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
+            "./scripts/install-editor.sh"
         ]
     },
     "config": {
