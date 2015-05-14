@@ -1354,7 +1354,7 @@
                 "reference": "develop"
             },
             "type": "library",
-            "time": "2015-04-27 21:07:56"
+            "time": "2015-05-14 16:40:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
