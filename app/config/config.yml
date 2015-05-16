@@ -79,3 +79,22 @@ fos_user:
     registration:
         confirmation:
             enabled:    true
+fos_rest:
+    routing_loader:
+        default_format: json
+    body_listener: true
+    param_fetcher_listener: force
+    body_converter:
+        enabled: true
+    access_denied_listener:
+        json: true
+    view:
+        force_redirects:
+            html: true
+        formats:
+            jsonp: false
+            json: true
+            xml: false
+            rss: false
+        failed_validation: HTTP_BAD_REQUEST
+        view_response_listener: force

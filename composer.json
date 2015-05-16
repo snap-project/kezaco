@@ -51,7 +51,10 @@
         "twbs/bootstrap": "^3.3",
         "jquery/jquery":  "1.11.*",
         "oyejorge/less.php": "v1.7.0.3",
-        "snap-project/app-builder": "dev-develop"
+        "snap-project/app-builder": "dev-develop",
+        "friendsofsymfony/rest-bundle": "^1.5",
+        "jms/serializer-bundle": "^0.13.0",
+        "voryx/restgeneratorbundle": "^0.2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
