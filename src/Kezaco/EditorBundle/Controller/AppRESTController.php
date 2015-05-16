@@ -59,6 +59,8 @@ class AppRESTController extends VoryxController
             $order_by = $paramFetcher->get('order_by');
             $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
 
+            $filters['author'] = $this->getUser();
+
             $em = $this->getDoctrine()->getManager();
             $entities = $em->getRepository('KezacoEditorBundle:App')->findBy($filters, $order_by, $limit, $offset);
             if ($entities) {
@@ -112,6 +114,13 @@ class AppRESTController extends VoryxController
     public function putAction(Request $request, App $entity)
     {
         try {
+
+            $user = $this->getUser();
+
+            if($entity->getAuthor() !== $user) {
+                return FOSView::create('Forbidden', Codes::HTTP_FORBIDDEN);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $request->setMethod('PATCH'); //Treat all PUTs as PATCH
             $form = $this->createForm(new AppType(), $entity, array("method" => $request->getMethod()));
@@ -156,6 +165,13 @@ class AppRESTController extends VoryxController
     public function deleteAction(Request $request, App $entity)
     {
         try {
+
+            $user = $this->getUser();
+
+            if($entity->getAuthor() !== $user) {
+                return FOSView::create('Forbidden', Codes::HTTP_FORBIDDEN);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($entity);
             $em->flush();
