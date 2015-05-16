@@ -7,6 +7,16 @@
 {% endblock %}
 
 {% block body_container %}
+
+  {# Message flash#}
+  {% for type,messages in app.session.flashbag.all %}
+    {% for message in messages %}
+      <div class="alert alert-{{type}}">
+        {{message}}
+      </div>
+    {% endfor %}
+  {% endfor %}
+
   <table class="table">
     <thead>
       <tr>
@@ -31,7 +41,9 @@
         <td>{{ user.enabled ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>'}}</td>
         <td>{{ user.lastLogin|date('d/m/Y H:i')}}</td>
         <td>
-
+          <a href="{{path('kezaco_admin_user_delete', {'id': user.id})}}" class="text-danger">
+            Supprimer
+          </a>
         </td>
       </tr>
       {% endfor %}

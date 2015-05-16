@@ -1,0 +1,26 @@
+{% extends "::admin.html.twig" %}
+
+{% block title %}Supprimer un utilisateur | Kezaco{% endblock %}
+
+{% block body_header_container %}
+  Suppression d'un utilisateur
+{% endblock %}
+
+{% block body_container %}
+
+<p>Êtes-vous certain de vouloir supprimer l'utilisateur "{{ user.username }}" ?</p>
+
+{# On met l'id de l'annonce dans la route de l'action du formulaire #}
+<form action="{{ path('kezaco_admin_user_delete', {'id': user.id}) }}" method="post">
+  <a href="{{ path('kezaco_admin_user_index')}}" class="btn btn-default">
+    <i class="glyphicon glyphicon-chevron-left"></i>
+    Retour
+  </a>
+  {# Ici j'ai écrit le bouton de soumission à la main #}
+  <input type="submit" value="Supprimer" class="btn btn-danger" />
+  {# Ceci va générer le champ CSRF #}
+  {{ form_rest(form) }}
+</form>
+
+
+{% endblock %}
