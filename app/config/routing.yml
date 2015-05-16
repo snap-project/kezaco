@@ -1,3 +1,8 @@
+kezaco_admin:
+    resource: "@KezacoAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 kezaco_editor:
     resource: "@KezacoEditorBundle/Controller/"
     type:     annotation

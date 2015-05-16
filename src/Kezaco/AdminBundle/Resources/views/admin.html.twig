@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      {% block head %}
+        {% block head_meta %}
+          <meta charset="utf8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% endblock %}
+        <title>{% block head_title %}Kezaco | Administration{% endblock %}</title>
+        {% block head_style %}
+          {% stylesheets
+            'bundles/kezacoadmin/css/bootstrap.min.css'
+            'bundles/kezacoadmin/css/font-awesome.min.css'
+            'bundles/kezacoadmin/css/metisMenu.min.css'
+            'bundles/kezacoadmin/css/sb-admin-2.css'
+          %}
+            <link href="{{ asset_url }}" rel="stylesheet" media="screen">
+          {% endstylesheets %}
+        {% endblock %}
+        {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+      {% endblock %}
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+          {{ include ('KezacoAdminBundle::navigation_top.html.twig') }}
+          {{ include ('KezacoAdminBundle::sidebar.html.twig') }}
+      </nav>
+
+      {% block body %}
+      <div id="page-wrapper">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1 class="page-header">
+              {{ block('body_header_container')}}
+            </h1>
+          </div>
+        </div>
+        {{ block('body_container') }}
+      </div>
+      {% endblock %}
+    </div>
+
+    {% block body_script %}
+      {% javascripts
+        'bundles/kezacoadmin/js/jquery.min.js'
+        'bundles/kezacoadmin/js/bootstrap.min.js'
+        'bundles/kezacoadmin/js/metisMenu.min.js'
+        'bundles/kezacoadmin/js/sb-admin-2.js'
+      %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+    {% endblock %}
+  </body>
+</html>

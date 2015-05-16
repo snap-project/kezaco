@@ -1,0 +1,41 @@
+{% extends "::admin.html.twig" %}
+
+{% block title %}Utilisateurs | Kezaco{% endblock %}
+
+{% block body_header_container %}
+  Utilisateurs
+{% endblock %}
+
+{% block body_container %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Enabled</th>
+        <th>Last login</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          {% for role in user.roles %}
+            {{ role }} <br />
+          {% endfor %}
+        </td>
+        <td>{{ user.enabled ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>'}}</td>
+        <td>{{ user.lastLogin|date('d/m/Y H:i')}}</td>
+        <td>
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

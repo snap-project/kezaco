@@ -21,7 +21,8 @@ class AppKernel extends Kernel
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
-            new Kezaco\EditorBundle\KezacoEditorBundle()
+            new Kezaco\EditorBundle\KezacoEditorBundle(),
+            new Kezaco\AdminBundle\KezacoAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
