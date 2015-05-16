@@ -1,3 +1,8 @@
+kezaco_editor_app_api:
+    resource: "@KezacoEditorBundle/Controller/AppRESTController.php"
+    type:   rest
+    prefix:   /api
+
 kezaco_admin:
     resource: "@KezacoAdminBundle/Controller/"
     type:     annotation

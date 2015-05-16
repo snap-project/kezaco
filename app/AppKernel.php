@@ -19,6 +19,10 @@ class AppKernel extends Kernel
 
             new FOS\UserBundle\FOSUserBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
+            new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
             new Kezaco\EditorBundle\KezacoEditorBundle(),
