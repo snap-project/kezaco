@@ -24,6 +24,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/editor, role: ROLE_USER }
         - { path: ^/api, role: ROLE_USER }
+        - { path: ^/medias, role: ROLE_USER }
         - { path: ^/admin, role: ROLE_ADMIN }
 
     role_hierarchy:

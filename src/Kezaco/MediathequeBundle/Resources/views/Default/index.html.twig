@@ -10,4 +10,21 @@
   </div>
 </div>
 
+<div class="row">
+  {% for media in medias %}
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p class="lead">{{media.name}}</p>
+            <ul class="list-inline">
+              <li>{{media.contentType|upper}}</li>
+              <li>{{media.weight}} bytes</li>
+              <li>{{media.createdAt|date('d/m/Y')}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+</div>
+
 {% endblock %}
