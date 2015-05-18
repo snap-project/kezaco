@@ -208,7 +208,7 @@ class Media
      */
     public function getWeight()
     {
-        return number_format($this->weight / 1000, 2, '.', ' ');
+        return $this->weight;
     }
 
     /**
@@ -281,7 +281,7 @@ class Media
 
     public function getUploadDir()
     {
-      return 'uploads/medias/'.date('Y').'/'.date('m');
+      return 'uploads/medias';
     }
 
     /**
@@ -312,8 +312,6 @@ class Media
             // do whatever you want to generate a unique name
             $filename = sha1(uniqid(mt_rand(), true));
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
-            $this->contentType = $this->getFile()->getMimeType();
-            $this->weight = $this->getFile()->getSize();
         }
     }
 

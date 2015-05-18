@@ -28,6 +28,7 @@ class User extends BaseUser
      * @var Entity
      *
      * @ORM\ManyToMany(targetEntity="Kezaco\MediathequeBundle\Entity\Media", inversedBy="users")
+     * @ORM\JoinTable(name="user_media")
      */
     protected $medias;
 
@@ -48,6 +49,7 @@ class User extends BaseUser
      */
     public function addMedia(\Kezaco\MediathequeBundle\Entity\Media $medias)
     {
+        $medias->addUser($this);
         $this->medias[] = $medias;
 
         return $this;
