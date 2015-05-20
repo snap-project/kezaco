@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: doctrine_extensions.yml }
 
 framework:
     #esi:             ~
@@ -37,11 +38,16 @@ assetic:
     bundles:
         - KezacoCoreBundle
         - KezacoAdminBundle
+        - KezacoEditorBundle
     filters:
         lessphp:
             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
             apply_to: "\.less$"
         cssrewrite: ~
+    assets:
+        jquery:
+            inputs:
+                - %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.2.js
 
 # Doctrine Configuration
 doctrine:
@@ -59,8 +65,11 @@ doctrine:
         auto_mapping: true
 
 braincrafted_bootstrap:
+    auto_configure:
+        assetic: true
     less_filter: lessphp
     jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.2.js
+
 
 # Swiftmailer Configuration
 swiftmailer:

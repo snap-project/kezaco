@@ -9,7 +9,7 @@
         <title>{% block head_title %}Kezaco{% endblock %}</title>
         {% block head_style %}
           {% stylesheets
-            'css/bootstrap.css'
+            '@bootstrap_css'
           %}
             <link href="{{ asset_url }}" rel="stylesheet" media="screen">
           {% endstylesheets %}
@@ -24,8 +24,8 @@
         </div>
         {% block body_script %}
           {% javascripts
-            'js/jquery.js'
-            'js/bootstrap.js'
+            '@jquery'
+            '@bootstrap_js'
           %}
             <script src="{{ asset_url }}"></script>
           {% endjavascripts %}

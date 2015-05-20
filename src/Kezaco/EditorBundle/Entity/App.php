@@ -4,6 +4,9 @@ namespace Kezaco\EditorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Kezaco\CoreBundle\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
+use Kezaco\EditorBundle\Entity\AppShareToken;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * App
@@ -44,6 +47,37 @@ class App
      **/
     private $author;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Kezaco\EditorBundle\Entity\AppShareToken", mappedBy="app")
+     **/
+    private $shareTokens;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="creationDate", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $creationDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lastUpdate", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $lastUpdate;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->shareTokens = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -122,5 +156,38 @@ class App
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Add shareTokens
+     *
+     * @param AppShareToken $shareTokens
+     * @return App
+     */
+    public function addShareToken(AppShareToken $shareTokens)
+    {
+        $this->shareTokens[] = $shareTokens;
+
+        return $this;
+    }
+
+    /**
+     * Remove shareTokens
+     *
+     * @param AppShareToken $shareTokens
+     */
+    public function removeShareToken(AppShareToken $shareTokens)
+    {
+        $this->shareTokens->removeElement($shareTokens);
+    }
+
+    /**
+     * Get shareTokens
+     *
+     * @return ArrayCollection
+     */
+    public function getShareTokens()
+    {
+        return $this->shareTokens;
     }
 }
