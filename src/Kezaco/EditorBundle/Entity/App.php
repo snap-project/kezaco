@@ -57,7 +57,7 @@ class App
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creationDate", type="datetime")
+     * @ORM\Column(name="creation_date", type="datetime")
      * @Gedmo\Timestampable(on="create")
      */
     private $creationDate;
@@ -65,7 +65,7 @@ class App
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="lastUpdate", type="datetime")
+     * @ORM\Column(name="last_update", type="datetime")
      * @Gedmo\Timestampable(on="update")
      */
     private $lastUpdate;
