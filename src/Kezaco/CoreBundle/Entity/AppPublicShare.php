@@ -1,19 +1,19 @@
 <?php
 
-namespace Kezaco\EditorBundle\Entity;
+namespace Kezaco\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
-use Kezaco\EditorBundle\Entity\App;
+use Kezaco\CoreBundle\Entity\App;
 
 /**
- * AppShareToken
+ * AppPublicShare
  *
- * @ORM\Table("app_share_tokens")
+ * @ORM\Table()
  * @ORM\Entity
  */
-class AppShareToken
+class AppPublicShare
 {
     /**
      * @var integer
@@ -50,7 +50,7 @@ class AppShareToken
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="App", inversedBy="shareTokens")
+     * @ORM\ManyToOne(targetEntity="App", inversedBy="publicShares")
      * @ORM\JoinColumn(name="app_id", referencedColumnName="id")
      **/
     private $app;

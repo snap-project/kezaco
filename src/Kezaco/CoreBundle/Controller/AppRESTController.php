@@ -1,9 +1,9 @@
 <?php
 
-namespace Kezaco\EditorBundle\Controller;
+namespace Kezaco\CoreBundle\Controller;
 
-use Kezaco\EditorBundle\Entity\App;
-use Kezaco\EditorBundle\Form\AppType;
+use Kezaco\CoreBundle\Entity\App;
+use Kezaco\CoreBundle\Form\AppType;
 
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
@@ -62,7 +62,7 @@ class AppRESTController extends VoryxController
             $filters['author'] = $this->getUser();
 
             $em = $this->getDoctrine()->getManager();
-            $entities = $em->getRepository('KezacoEditorBundle:App')->findBy($filters, $order_by, $limit, $offset);
+            $entities = $em->getRepository('KezacoCoreBundle:App')->findBy($filters, $order_by, $limit, $offset);
             if ($entities) {
                 return $entities;
             }
