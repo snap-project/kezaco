@@ -81,6 +81,8 @@ class Media
 
     private $temp;
 
+
+
     /**
      * Get id
      *
@@ -362,5 +364,14 @@ class Media
       if ($file) {
           unlink($file);
       }
+    }
+
+    public function getTotalSize()
+    {
+      $totalSize = 0;
+      foreach ($this->entries  as $entry) {
+        $totalSize += $entry->getSize();
+      }
+      return $totalSize;
     }
 }

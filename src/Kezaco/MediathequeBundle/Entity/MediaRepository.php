@@ -31,4 +31,13 @@ class MediaRepository extends EntityRepository
     return $qb->getQuery()->getResult();
   }
 
+  public function getTotalSize(User $user)
+  {
+    $qb = $this->createQueryBuilder('m')->select('SUM(m.size)');
+    $qb->join('m.users', 'u')
+      ->where('u.id = :user_id')
+      ->setParameter('user_id', $user->getId(), \Doctrine\DBAL\Types\Type::INTEGER);
+    return $qb->getQuery()->getSingleScalarResult();
+  }
+
 }

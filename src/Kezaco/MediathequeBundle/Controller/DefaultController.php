@@ -24,7 +24,7 @@ class DefaultController extends Controller
       $user = $this->getUser();
 
       $medias = $user->getMedias();
-
+      //dump($user->getMedias()->count()); die();
       // recupération des filtres
       $filters = empty($this->getRequest()->query->all()) ? [] : $this->getRequest()->query->all();
       if (!empty($filters))
@@ -32,7 +32,9 @@ class DefaultController extends Controller
         $medias = $em->getRepository('KezacoMediathequeBundle:Media')
           ->findAllByFilter($user, $filters);
       }
-
+      $totalSize = $em->getRepository('KezacoMediathequeBundle:Media')
+        ->getTotalSize($user);
+      //dump($totalSize); die();
       // formulaire d'upload
       $media = new Media();
       $form = $this->createFormBuilder($media)
@@ -60,7 +62,8 @@ class DefaultController extends Controller
       return $this->render('KezacoMediathequeBundle:Default:index.html.twig', [
         'medias' => $medias,
         'form' => $form->createView(),
-        'filters' => $filters
+        'filters' => $filters,
+        'totalSize' => $totalSize
         ]);
     }
 }
