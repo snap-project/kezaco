@@ -25,9 +25,9 @@ class DefaultController extends Controller
 
       $media = new Media();
       $form = $this->createFormBuilder($media)
-        ->add('name')
-        ->add('file')
-        ->add('Envoyer', 'submit')
+        ->add('name', 'text', ['label' => 'Nom du fichier'])
+        ->add('file', 'file', ['label' => 'Choisir un fichier'])
+        ->add('Envoyer', 'submit', ['attr' => ['class' => 'btn btn-block btn-primary']])
         ->getForm();
 
       $form->handleRequest($request);
@@ -41,7 +41,7 @@ class DefaultController extends Controller
         $em->persist($user);
 
         $em->flush();
-        
+
         $request->getSession()->getFlashBag()->add('success', "Votre fichier a bien été sauvegardé");
         return $this->redirectToRoute('kezaco_medias_index');
       }
