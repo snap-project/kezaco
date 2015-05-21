@@ -21,17 +21,9 @@ class DefaultController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
 
-      $user_id = $this->getUser()->getId();
-
-      $medias = $em->getRepository('KezacoCoreBundle:User')
-        ->find($user_id)
-        ->getMedias();
-
-      $user = $em->getRepository('KezacoCoreBundle:User')->find($user_id);
+      $user = $this->getUser();
 
       $media = new Media();
-      $media->setAuthorId($user_id);
-
       $form = $this->createFormBuilder($media)
         ->add('name')
         ->add('file')
@@ -41,17 +33,21 @@ class DefaultController extends Controller
       $form->handleRequest($request);
 
       if ($form->isValid()) {
+        $media->setAuthor( $this->getUser()->getId());
+        $media->addUser($user);
         $user->addMedia($media);
-        $em->persist($user);
-        $em->persist($media);
-        $em->flush();
 
+        $em->persist($media);
+        $em->persist($user);
+
+        $em->flush();
+        
         $request->getSession()->getFlashBag()->add('success', "Votre fichier a bien été sauvegardé");
         return $this->redirectToRoute('kezaco_medias_index');
       }
 
       return $this->render('KezacoMediathequeBundle:Default:index.html.twig', [
-        'medias' => $medias,
+        'medias' => $user->getMedias(),
         'form' => $form->createView()
         ]);
     }

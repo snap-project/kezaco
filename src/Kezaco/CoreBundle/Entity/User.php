@@ -49,7 +49,7 @@ class User extends BaseUser
      */
     public function addMedia(\Kezaco\MediathequeBundle\Entity\Media $medias)
     {
-        $medias->addUser($this);
+        //$medias->addUser($this);
         $this->medias[] = $medias;
 
         return $this;

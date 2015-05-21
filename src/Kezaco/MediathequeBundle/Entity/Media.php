@@ -30,7 +30,7 @@ class Media
      *
      * @ORM\Column(name="authorId", type="integer")
      */
-    private $authorId;
+    private $author;
 
     /**
      * @var string
@@ -56,9 +56,9 @@ class Media
     /**
      * @var integer
      *
-     * @ORM\Column(name="weight", type="integer")
+     * @ORM\Column(name="size", type="integer")
      */
-    private $weight;
+    private $size;
 
     /**
      * @var \DateTime
@@ -97,26 +97,26 @@ class Media
     }
 
     /**
-     * Set authorId
+     * Set author
      *
-     * @param integer $authorId
+     * @param User $author
      * @return Media
      */
-    public function setAuthorId($authorId)
+    public function setAuthor($author)
     {
-        $this->authorId = $authorId;
+        $this->author = $author;
 
         return $this;
     }
 
     /**
-     * Get authorId
+     * Get author
      *
      * @return integer
      */
-    public function getAuthorId()
+    public function getAuthor()
     {
-        return $this->authorId;
+        return $this->author;
     }
 
     /**
@@ -189,26 +189,26 @@ class Media
     }
 
     /**
-     * Set weight
+     * Set size
      *
-     * @param integer $weight
+     * @param integer $size 
      * @return Media
      */
-    public function setWeight($weight)
+    public function setSize($size)
     {
-        $this->weight = $weight;
+        $this->size = $size;
 
         return $this;
     }
 
     /**
-     * Get weight
+     * Get size
      *
      * @return integer
      */
-    public function getWeight()
+    public function getSize()
     {
-        return number_format($this->weight / 1000, 2, '.', ' ');
+        return $this->size;
     }
 
     /**
@@ -235,26 +235,27 @@ class Media
     }
 
     /**
-     * Add users
+     * Add user
      *
-     * @param \Kezaco\CoreBundle\Entity\User $users
+     * @param \Kezaco\CoreBundle\Entity\User $user
      * @return Media
      */
-    public function addUser(\Kezaco\CoreBundle\Entity\User $users)
+    public function addUser(\Kezaco\CoreBundle\Entity\User $user)
     {
-        $this->users[] = $users;
+        //$user->addMedia($this);
+        $this->users[] = $user;
 
         return $this;
     }
 
     /**
-     * Remove users
+     * Remove user
      *
-     * @param \Kezaco\CoreBundle\Entity\User $users
+     * @param \Kezaco\CoreBundle\Entity\User $user
      */
-    public function removeUser(\Kezaco\CoreBundle\Entity\User $users)
+    public function removeUser(\Kezaco\CoreBundle\Entity\User $user)
     {
-        $this->users->removeElement($users);
+        $this->users->removeElement($user);
     }
 
     /**
@@ -276,12 +277,12 @@ class Media
 
     public function getUploadRootDir()
     {
-      return __DIR__.'/../../../../web/'.$this->getUploadDir();
+      return __DIR__.'/../../../../app/'.$this->getUploadDir();
     }
 
     public function getUploadDir()
     {
-      return 'uploads/medias/'.date('Y').'/'.date('m');
+      return 'uploads/medias/'.date('Y').'/'.date('m').'/'.date('d');
     }
 
     /**
@@ -313,7 +314,7 @@ class Media
             $filename = sha1(uniqid(mt_rand(), true));
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
             $this->contentType = $this->getFile()->getMimeType();
-            $this->weight = $this->getFile()->getSize();
+            $this->size = $this->getFile()->getSize();
         }
     }
 
