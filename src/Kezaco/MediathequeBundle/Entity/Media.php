@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Media
  *
  * @ORM\Table("medias")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Kezaco\MediathequeBundle\Entity\MediaRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Media
@@ -191,7 +191,7 @@ class Media
     /**
      * Set size
      *
-     * @param integer $size 
+     * @param integer $size
      * @return Media
      */
     public function setSize($size)

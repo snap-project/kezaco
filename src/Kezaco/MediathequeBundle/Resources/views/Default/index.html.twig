@@ -33,6 +33,22 @@
         </div>
       {% else %}
         <div class="col-xs-12">
+          <form class="form-inline" method="get">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="image" value="true" {{ "image" in filters|keys ? 'checked' : '' }}> Images
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="pdf" value="true" {{ "pdf" in filters|keys ? 'checked' : '' }}> PDF
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default">Filtrer</button>
+          </form>
+          <hr />
+        </div>
+        <div class="col-xs-12">
           <table class="table">
             <thead>
               <tr>
