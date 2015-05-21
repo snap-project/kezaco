@@ -30,7 +30,7 @@ class DefaultController extends Controller
       if (!empty($filters))
       {
         $medias = $em->getRepository('KezacoMediathequeBundle:Media')
-          ->findAllByFilter($filters);
+          ->findAllByFilter($user, $filters);
       }
 
       // formulaire d'upload
