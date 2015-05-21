@@ -1,13 +1,27 @@
+
+/* Body */
+
+@bkgColor: #FFFDF5;
+
+body {
+    background-color: @bkgColor;
+}
+
+/* Navbar */
+
+@navbarBkgColor: #1D1714;
+@navbarLinksColor: #fbaf5e;
+
 .navbar {
 
     &.navbar-default {
 
         border: none;
-        background-color: #1D1714;
+        background-color: @navbarBkgColor;
         border-radius: 0;
 
         .navbar-nav > li > a {
-            color: #fbaf5e;
+            color: @navbarLinksColor;
         }
     }
 
