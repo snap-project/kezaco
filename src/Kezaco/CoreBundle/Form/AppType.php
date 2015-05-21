@@ -1,6 +1,6 @@
 <?php
 
-namespace Kezaco\EditorBundle\Form;
+namespace Kezaco\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

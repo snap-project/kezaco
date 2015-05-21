@@ -3,8 +3,8 @@ kezaco_mediatheque:
     type:     annotation
     prefix:   /
 
-kezaco_editor_app_api:
-    resource: "@KezacoEditorBundle/Controller/AppRESTController.php"
+kezaco_core_app_api:
+    resource: "@KezacoCoreBundle/Controller/AppRESTController.php"
     type:   rest
     prefix:   /api
 

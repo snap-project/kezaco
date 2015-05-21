@@ -1,18 +1,18 @@
 <?php
 
-namespace Kezaco\EditorBundle\Entity;
+namespace Kezaco\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Kezaco\CoreBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
-use Kezaco\EditorBundle\Entity\AppShareToken;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * App
  *
- * @ORM\Table("apps")
+ * @ORM\Table()
  * @ORM\Entity
+ * @Serializer\ExclusionPolicy("all")
  */
 class App
 {
@@ -22,6 +22,7 @@ class App
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serializer\Expose
      */
     private $id;
 
@@ -29,6 +30,7 @@ class App
      * @var array
      *
      * @ORM\Column(name="manifest", type="json_array")
+     * @Serializer\Expose
      */
     private $manifest;
 
@@ -36,6 +38,7 @@ class App
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Serializer\Expose
      */
     private $name;
 
@@ -50,15 +53,16 @@ class App
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Kezaco\EditorBundle\Entity\AppShareToken", mappedBy="app")
+     * @ORM\OneToMany(targetEntity="AppPublicShare", mappedBy="app", orphanRemoval=true)
      **/
-    private $shareTokens;
+    private $publicShares;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="creation_date", type="datetime")
      * @Gedmo\Timestampable(on="create")
+     * @Serializer\Expose
      */
     private $creationDate;
 
@@ -67,6 +71,7 @@ class App
      *
      * @ORM\Column(name="last_update", type="datetime")
      * @Gedmo\Timestampable(on="update")
+     * @Serializer\Expose
      */
     private $lastUpdate;
 
@@ -138,10 +143,10 @@ class App
     /**
      * Set author
      *
-     * @param User $author
-     * @return App
+     * @param \Kezaco\CoreBundle\Entity\User $author
+     * @return \Kezaco\CoreBundle\Entity\User
      */
-    public function setAuthor($author)
+    public function setAuthor(\Kezaco\CoreBundle\Entity\User $author)
     {
         $this->author = $author;
 
@@ -151,7 +156,7 @@ class App
     /**
      * Get author
      *
-     * @return string
+     * @return \Kezaco\CoreBundle\Entity\User
      */
     public function getAuthor()
     {
@@ -159,35 +164,36 @@ class App
     }
 
     /**
-     * Add shareTokens
+     * Add publicShare
      *
-     * @param AppShareToken $shareTokens
+     * @param AppPublicShare $publicShare
      * @return App
      */
-    public function addShareToken(AppShareToken $shareTokens)
+    public function addPublicShare(AppPublicShare $publicShare)
     {
-        $this->shareTokens[] = $shareTokens;
+        $publicShare->setApp($this);
+        $this->publicShares[] = $publicShare;
 
         return $this;
     }
 
     /**
-     * Remove shareTokens
+     * Remove publicShare
      *
-     * @param AppShareToken $shareTokens
+     * @param AppPublicShare $publicShare
      */
-    public function removeShareToken(AppShareToken $shareTokens)
+    public function removePublicShare(AppPublicShare $publicShare)
     {
-        $this->shareTokens->removeElement($shareTokens);
+        $this->publicShares->removeElement($publicShare);
     }
 
     /**
-     * Get shareTokens
+     * Get publicShares
      *
      * @return ArrayCollection
      */
-    public function getShareTokens()
+    public function getPublicShares()
     {
-        return $this->shareTokens;
+        return $this->publicShares;
     }
 }
