@@ -1,1 +1,9 @@
 {% extends "::layout.html.twig" %}
+
+{% block body_container %}
+  {% if app.user is defined %}
+    {% include "KezacoCoreBundle:Default:_home.html.twig" %}
+  {% else %}
+    {% include "KezacoCoreBundle:Default:_landing.html.twig" %}
+  {% endif %}
+{% endblock %}

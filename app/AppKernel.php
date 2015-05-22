@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
             new Kezaco\EditorBundle\KezacoEditorBundle(),

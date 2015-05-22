@@ -55,7 +55,8 @@
         "friendsofsymfony/rest-bundle": "^1.5",
         "jms/serializer-bundle": "^0.13.0",
         "voryx/restgeneratorbundle": "^0.2.0",
-        "gedmo/doctrine-extensions": "^2.4"
+        "gedmo/doctrine-extensions": "^2.4",
+        "knplabs/knp-menu-bundle": "~2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

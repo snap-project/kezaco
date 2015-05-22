@@ -1,4 +1,43 @@
 parameters:
+    kezaco_core.menu.builder.class: Kezaco\CoreBundle\Menu\Builder
 
 services:
-    
+
+    ## Menus ##
+
+    # Builder
+    kezaco_core.menu.builder:
+        class: "%kezaco_core.menu.builder.class%"
+        arguments:
+            - @knp_menu.factory
+            - @event_dispatcher
+
+
+    # Navbar right menu
+    kezaco_core.menu.navbar_right_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: kezaco_core.menu.builder
+        factory_method: createNavbarRightMenu
+        arguments:
+            - @request_stack
+        tags:
+            - { name: knp_menu.menu, alias: kezaco_core.menu.navbar_right_menu }
+
+    # Navbar right menu
+    kezaco_core.menu.home_left_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: kezaco_core.menu.builder
+        factory_method: createHomeLeftMenu
+        arguments:
+            - @request_stack
+        tags:
+            - { name: knp_menu.menu, alias: kezaco_core.menu.home_left_menu }
+
+    ## Event listeners ##
+
+    kezaco_core.listener.configure_navbar_right_menu:
+        class: Kezaco\CoreBundle\EventListener\ConfigureMenuListener
+        arguments:
+            - @security.context
+        tags:
+          - { name: kernel.event_listener, event: kezaco_core.menu.configure_navbar_right_menu, method: onConfigureNavbarRightMenu }
