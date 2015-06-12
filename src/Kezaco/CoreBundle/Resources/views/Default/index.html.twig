@@ -1,1 +1,18 @@
 {% extends "::layout.html.twig" %}
+
+
+{% block body_container %}
+
+  <div class="header-area">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="search-form">
+            {% include 'KezacoCoreBundle:Search:_search.html.twig' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
