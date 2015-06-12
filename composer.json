@@ -55,7 +55,9 @@
         "friendsofsymfony/rest-bundle": "^1.5",
         "jms/serializer-bundle": "^0.13.0",
         "voryx/restgeneratorbundle": "^0.2.0",
-        "gedmo/doctrine-extensions": "^2.4"
+        "gedmo/doctrine-extensions": "^2.4",
+        "doctrine/doctrine-fixtures-bundle": "^2.2",
+        "lexik/fixtures-mapper-bundle": "^1.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

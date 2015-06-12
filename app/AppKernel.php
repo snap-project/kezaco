@@ -23,7 +23,9 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
-
+            new Lexik\Bundle\FixturesMapperBundle\LexikFixturesMapperBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            
             new Kezaco\CoreBundle\KezacoCoreBundle(),
             //new Kezaco\EditorBundle\KezacoEditorBundle(),
             new Kezaco\AdminBundle\KezacoAdminBundle(),
