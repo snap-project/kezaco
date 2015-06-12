@@ -1,7 +1,7 @@
-kezaco_mediatheque:
-    resource: "@KezacoMediathequeBundle/Controller/"
-    type:     annotation
-    prefix:   /
+# kezaco_mediatheque:
+#     resource: "@KezacoMediathequeBundle/Controller/"
+#     type:     annotation
+#     prefix:   /
 
 kezaco_core_app_api:
     resource: "@KezacoCoreBundle/Controller/AppRESTController.php"
@@ -13,10 +13,10 @@ kezaco_admin:
     type:     annotation
     prefix:   /
 
-kezaco_editor:
-    resource: "@KezacoEditorBundle/Controller/"
-    type:     annotation
-    prefix:   /
+# kezaco_editor:
+#     resource: "@KezacoEditorBundle/Controller/"
+#     type:     annotation
+#     prefix:   /
 
 kezaco_core:
     resource: "@KezacoCoreBundle/Controller/"

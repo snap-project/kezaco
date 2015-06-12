@@ -25,9 +25,9 @@ class AppKernel extends Kernel
             new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
-            new Kezaco\EditorBundle\KezacoEditorBundle(),
+            //new Kezaco\EditorBundle\KezacoEditorBundle(),
             new Kezaco\AdminBundle\KezacoAdminBundle(),
-            new Kezaco\MediathequeBundle\KezacoMediathequeBundle(),
+            //new Kezaco\MediathequeBundle\KezacoMediathequeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

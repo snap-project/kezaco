@@ -37,8 +37,8 @@ assetic:
     use_controller: false
     bundles:
         - KezacoCoreBundle
-        - KezacoAdminBundle
-        - KezacoEditorBundle
+        #- KezacoAdminBundle
+        #- KezacoEditorBundle
     filters:
         lessphp:
             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
