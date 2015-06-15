@@ -5,12 +5,12 @@ namespace Kezaco\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Discipline
+ * ClassYear
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Discipline
+class ClassYear
 {
     /**
      * @var integer
@@ -34,6 +34,14 @@ class Discipline
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
+
+    /**
+     * @var Cycle
+     *
+     * @ORM\ManyToOne(targetEntity="Kezaco\CoreBundle\Entity\Cycle", inversedBy="classYears")
+     * @ORM\JoinColumn(name="cycle_id", referencedColumnName="id")
+     **/
+    private $cycle;
 
     /**
      * @var string
@@ -120,5 +128,28 @@ class Discipline
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set cycle
+     *
+     * @param string $cycle
+     * @return ClassYear
+     */
+    public function setCycle($cycle)
+    {
+        $this->cycle = $cycle;
+
+        return $this;
+    }
+
+    /**
+     * Get cycle
+     *
+     * @return string
+     */
+    public function getCycle()
+    {
+        return $this->cycle;
     }
 }

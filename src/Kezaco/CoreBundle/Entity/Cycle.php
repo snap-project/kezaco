@@ -5,12 +5,12 @@ namespace Kezaco\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Discipline
+ * Cycle
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Discipline
+class Cycle
 {
     /**
      * @var integer
@@ -121,4 +121,5 @@ class Discipline
     {
         return $this->description;
     }
+
 }
