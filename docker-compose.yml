@@ -1,10 +1,14 @@
 web:
-  build: ./containers/web
+  image: dgraziotin/lamp
   ports:
     - "8080:80"
   volumes:
-    - .:/src/www
-mysql:
-  build: ./containers/mysql
+    - ".:/app"
+  environment:
+    CREATE_MYSQL_BASIC_USER_AND_DB: "true"
+    MYSQL_USER_NAME: kezaco
+    MYSQL_USER_DB: kezaco
+    MYSQL_USER_PASS: kezaco
+    MYSQL_ADMIN_PASS: toor
 elasticsearch:
-  build: ./containers/elasticsearch
+  image: elasticsearch
