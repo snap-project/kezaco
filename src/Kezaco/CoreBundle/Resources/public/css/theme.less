@@ -10,9 +10,9 @@
 @navbarLinksColor: #656464;
 
 // search area
-@searchAreaBgColor: rgb(2, 133, 174);
-@searchAreaBorderColor: rgba(2, 133, 174, .5);
-@searchAreaPadding: 15px 0;
+@searchAreaBgColor: rgb(255,255,255);
+@searchAreaBorderColor: rgba(255,255,255,1);
+@searchAreaPadding: 0;
 
 // search input
 @searchInputWidth: 100%;
@@ -25,6 +25,30 @@
 /* Body */
 body {
     background-color: @bkgColor;
+}
+
+input:required {
+  box-shadow:none;
+}
+input:invalid {
+  box-shadow: none;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #BDC3C7;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #BDC3C7;
+   font-weight: bold;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #BDC3C7;
+   font-weight: bold;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #BDC3C7;
 }
 
 /* Navbar */
@@ -53,10 +77,36 @@ body {
   margin-bottom: 20px;
 }
 
-.header-area input[type="search"] {
-  color: #656464;
+/* Search form */
+#searchInput {
+  font-size: 55px;
+  color: #BDC3C7;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
 }
 
+#searchInput:focus {
+  color: #34495E;
+}
+
+.search-input-control {
+  position: relative;
+}
+
+.search-input-control:before {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 100;
+  background: #ECF0F1;
+  width: 100%;
+}
 /* Section */
 .title-page {
   position: relative;
@@ -72,4 +122,39 @@ body {
 
 .user-profile-username {
   font-size: 1.5em;
+}
+
+/* Panes */
+.pane-header {
+  position: relative;
+}
+
+.pane-header .pane-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #7F8C8D;
+}
+
+/* Resource */
+.list-ressources {
+
+}
+
+.list-ressources .list-item {
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.list-ressources .list-item-content a {
+  display: block;
+  font-size: 18px;
+}
+
+.list-item-preview img {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
 }
