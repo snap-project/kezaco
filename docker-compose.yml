@@ -1,0 +1,10 @@
+web:
+  build: ./containers/web
+  ports:
+    - "8080:80"
+  volumes:
+    - .:/src/www
+mysql:
+  build: ./containers/mysql
+elasticsearch:
+  build: ./containers/elasticsearch
