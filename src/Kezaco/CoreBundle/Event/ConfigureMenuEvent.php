@@ -10,6 +10,7 @@ class ConfigureMenuEvent extends Event
 {
     const CONFIGURE_NAVBAR_RIGHT_MENU = 'kezaco_core.menu.configure_navbar_right_menu';
     const CONFIGURE_HOME_LEFT_MENU = 'kezaco_core.menu.configure_home_left_menu';
+    const CONFIGURE_HOME_RIGHT_MENU = 'kezaco_core.menu.configure_home_right_menu';
 
     private $factory;
     private $menu;

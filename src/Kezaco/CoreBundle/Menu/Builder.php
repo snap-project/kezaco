@@ -46,5 +46,17 @@ class Builder extends ContainerAware {
         return $menu;
     }
 
+    public function createHomeRightMenu(RequestStack $requestStack)
+    {
+        $menu = $this->factory->createItem('root');
+
+        $this->eventDispatcher->dispatch(
+            ConfigureMenuEvent::CONFIGURE_HOME_RIGHT_MENU,
+            new ConfigureMenuEvent($this->factory, $menu)
+        );
+
+        return $menu;
+    }
+
 
 }

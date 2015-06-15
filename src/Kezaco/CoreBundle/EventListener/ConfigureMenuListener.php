@@ -32,4 +32,19 @@ class ConfigureMenuListener
         }
 
     }
+
+    /**
+     * @param \Kezaco\CoreBundle\Event\ConfigureMenuEvent $event
+     */
+    public function onConfigureHomeLeftMenu(ConfigureMenuEvent $event)
+    {
+        $securityContext = $this->securityContext;
+        $menu = $event->getMenu();
+
+        // If user is connected, add logout link
+        if ($securityContext->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $menu->addChild('Open editor', array('route' => 'kezaco_editor_editor_index'));
+        }
+
+    }
 }

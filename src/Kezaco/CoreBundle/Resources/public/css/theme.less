@@ -1,16 +1,17 @@
-
-/* Body */
+/* Variables */
 
 @bkgColor: #FFFDF5;
+
+@navbarBkgColor: #1D1714;
+@navbarLinksColor: #fbaf5e;
+
+/* Body */
 
 body {
     background-color: @bkgColor;
 }
 
 /* Navbar */
-
-@navbarBkgColor: #1D1714;
-@navbarLinksColor: #fbaf5e;
 
 .navbar {
 
@@ -25,4 +26,15 @@ body {
         }
     }
 
+}
+
+
+/* Common */
+
+.border-right {
+    border-right: 1px solid @navbarBkgColor;
+}
+
+.border-left {
+    border-left: 1px solid @navbarBkgColor;
 }
