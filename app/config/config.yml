@@ -107,3 +107,22 @@ fos_rest:
             rss: false
         failed_validation: HTTP_BAD_REQUEST
         view_response_listener: force
+
+fos_elastica:
+    serializer: ~
+    clients:
+        default:
+            host: "%elasticsearch_host%"
+            port: %elasticsearch_port%
+    indexes:
+        kezaco:
+            finder: ~
+            index_name: kezaco_%kernel.environment%
+            types:
+                resource:
+                    serializer:
+                        groups: ['elastica', 'Default']
+                    persistence:
+                        driver: orm
+                        model: Kezaco\CoreBundle\Entity\Resource
+                        provider: ~
