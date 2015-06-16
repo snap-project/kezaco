@@ -11,7 +11,7 @@ Dans dans votre terminal:
 ```bash
 cd kezaco
 ./composer install
-docker-compose up # Peu prendre un certain temps la première fois
+docker-compose up # Peut prendre un certain temps la première fois
 ```
 Dans un autre terminal, ouvrir une session sur le conteneur web:
 ```bash
