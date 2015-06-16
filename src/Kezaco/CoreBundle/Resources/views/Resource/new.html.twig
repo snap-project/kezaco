@@ -1,0 +1,15 @@
+{% extends '::layout.html.twig' %}
+
+{% block body_container -%}
+    <h1>Resource creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('resource') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
