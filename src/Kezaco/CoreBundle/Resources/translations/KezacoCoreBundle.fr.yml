@@ -6,3 +6,8 @@ menu :
 
 search :
     search : Recherche
+
+app:
+    recents : Récents
+    popular : Populaires
+    teaching_sequence : Séquences Pédagogiques
