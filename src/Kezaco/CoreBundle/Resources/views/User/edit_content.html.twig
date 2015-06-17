@@ -3,17 +3,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block body_container %}
-<div class="header-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="title-page">
-          <h1>Édition du profile</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-10">
@@ -25,7 +15,7 @@
           <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
             {{ form_widget(form) }}
             <div>
-                <input type="submit" class="btn btn-primary" value="{{ 'profile.edit.submit'|trans }}" />
+              <input type="submit" class="btn btn-primary" value="{{ 'profile.edit.submit'|trans }}" />
             </div>
           </form>
         </div>
@@ -38,4 +28,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
