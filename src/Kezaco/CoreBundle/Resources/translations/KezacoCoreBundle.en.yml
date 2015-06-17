@@ -4,6 +4,10 @@ menu :
     profile  : Profile
     logout   : Logout
 
+buttons :
+    edit : Edit
+    cancel : Cancel
+    
 search :
     search : Search
 
