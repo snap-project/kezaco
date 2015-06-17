@@ -1,0 +1,8 @@
+menu :
+    login    : Connexion
+    register : S'inscrire
+    profile  : Profil
+    logout   : Déconnexion
+
+search :
+    search : Recherche
