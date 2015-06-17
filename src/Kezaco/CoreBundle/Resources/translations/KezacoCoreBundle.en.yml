@@ -1,0 +1,13 @@
+menu :
+    login    : Login
+    register : Register
+    profile  : Profile
+    logout   : Logout
+
+search :
+    search : Search
+
+app:
+    recents : Recent
+    popular : Popular
+    teaching_sequence : Teaching Sequences
