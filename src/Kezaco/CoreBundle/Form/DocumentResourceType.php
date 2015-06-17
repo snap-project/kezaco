@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ResourceType extends AbstractType
+class DocumentResourceType extends ResourceType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -14,15 +14,7 @@ class ResourceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('title', 'text')
-            ->add('description', 'text')
-            ->add('classYears', 'entity', [
-                'class' => 'KezacoCoreBundle:ClassYear',
-                'property' => 'title',
-                'multiple' => true
-            ])
-        ;
+        parent::buildForm($builder, $options);
     }
 
     /**
@@ -31,7 +23,7 @@ class ResourceType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Kezaco\CoreBundle\Entity\Resource'
+            'data_class' => 'Kezaco\CoreBundle\Entity\DocumentResource'
         ));
     }
 
@@ -40,6 +32,6 @@ class ResourceType extends AbstractType
      */
     public function getName()
     {
-        return 'kezaco_corebundle_resource';
+        return 'kezaco_corebundle_resource_document';
     }
 }

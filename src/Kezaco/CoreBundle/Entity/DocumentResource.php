@@ -3,6 +3,7 @@
 namespace Kezaco\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Kezaco\CoreBundle\Entity\Resource;
 
 /**
  * Resource
@@ -15,6 +16,7 @@ class DocumentResource extends Resource
 
     /**
      * @ORM\ManyToMany(targetEntity="Kezaco\CoreBundle\Entity\Document")
+     * @ORM\JoinTable(name="Documents_DocumentResources")
      */
     private $documents;
 
@@ -52,7 +54,7 @@ class DocumentResource extends Resource
     /**
      * Get documents
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDocuments()
     {

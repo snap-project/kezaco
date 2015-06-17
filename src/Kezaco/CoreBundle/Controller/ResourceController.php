@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Kezaco\CoreBundle\Entity\Resource;
+use Kezaco\CoreBundle\Entity\DocumentResource;
 use Kezaco\CoreBundle\Form\ResourceType;
 
 /**
@@ -19,23 +20,6 @@ class ResourceController extends Controller
 {
 
     /**
-     * Lists all Resource entities.
-     *
-     * @Route("/", name="resource")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('KezacoCoreBundle:Resource')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
-    /**
      * Creates a new Resource entity.
      *
      * @Route("/", name="resource_create")
@@ -44,7 +28,7 @@ class ResourceController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity = new Resource();
+        $entity = new DocumentResource();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -90,7 +74,7 @@ class ResourceController extends Controller
      */
     public function newAction()
     {
-        $entity = new Resource();
+        $entity = new DocumentResource();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -106,7 +90,7 @@ class ResourceController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -115,6 +99,8 @@ class ResourceController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Resource entity.');
         }
+
+        if($entity->getAuthor() === $this->getUser())
 
         $deleteForm = $this->createDeleteForm($id);
 

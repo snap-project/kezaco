@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * User
  *
- * @ORM\Table("users")
+ * @ORM\Table()
  * @ORM\Entity
  */
 class User extends BaseUser
@@ -36,7 +36,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {

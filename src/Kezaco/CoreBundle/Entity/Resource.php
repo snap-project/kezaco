@@ -71,6 +71,26 @@ class Resource
     private $author;
 
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Kezaco\CoreBundle\Entity\Cycle")
+     * @ORM\JoinTable(name="Cycles_Resources")
+     */
+    private $cycles;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Kezaco\CoreBundle\Entity\ClassYear")
+     * @ORM\JoinTable(name="ClassYears_Resources")
+     */
+    private $classYears;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cycles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->classYears = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -219,5 +239,71 @@ class Resource
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Add cycles
+     *
+     * @param \Kezaco\CoreBundle\Entity\Cycle $cycles
+     * @return Resource
+     */
+    public function addCycle(\Kezaco\CoreBundle\Entity\Cycle $cycles)
+    {
+        $this->cycles[] = $cycles;
+
+        return $this;
+    }
+
+    /**
+     * Remove cycles
+     *
+     * @param \Kezaco\CoreBundle\Entity\Cycle $cycles
+     */
+    public function removeCycle(\Kezaco\CoreBundle\Entity\Cycle $cycles)
+    {
+        $this->cycles->removeElement($cycles);
+    }
+
+    /**
+     * Get cycles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCycles()
+    {
+        return $this->cycles;
+    }
+
+    /**
+     * Add classYears
+     *
+     * @param \Kezaco\CoreBundle\Entity\ClassYear $classYears
+     * @return Resource
+     */
+    public function addClassYear(\Kezaco\CoreBundle\Entity\ClassYear $classYears)
+    {
+        $this->classYears[] = $classYears;
+
+        return $this;
+    }
+
+    /**
+     * Remove classYears
+     *
+     * @param \Kezaco\CoreBundle\Entity\ClassYear $classYears
+     */
+    public function removeClassYear(\Kezaco\CoreBundle\Entity\ClassYear $classYears)
+    {
+        $this->classYears->removeElement($classYears);
+    }
+
+    /**
+     * Get classYears
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClassYears()
+    {
+        return $this->classYears;
     }
 }
