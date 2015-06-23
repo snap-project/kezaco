@@ -27,9 +27,7 @@ class AppKernel extends Kernel
             new FOS\ElasticaBundle\FOSElasticaBundle(),
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
-            //new Kezaco\EditorBundle\KezacoEditorBundle(),
             new Kezaco\AdminBundle\KezacoAdminBundle(),
-            //new Kezaco\MediathequeBundle\KezacoMediathequeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
