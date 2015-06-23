@@ -14,6 +14,20 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-      return array();
+
+        $request = $this->getRequest();
+
+        $search = $request->get('search');
+
+        $searchRepo = $this->get('fos_elastica.manager')
+            ->getRepository('KezacoCoreBundle:Resource')
+        ;
+
+        return [
+            'search' => $search,
+            'results' => $searchRepo->find($search),
+            'popular' => $searchRepo->findPopular(),
+            'recent' => $searchRepo->findRecent()
+        ];
     }
 }

@@ -25,45 +25,9 @@
                 <h3 class="pane-title">{{ 'app.recents'|trans({}, 'KezacoCoreBundle') }}</h3>
               </section>
               <section class="list-ressources">
-                <section class="list-item">
-                  <section class="row">
-                    <section class="col-md-2">
-                      <section class="list-item-preview">
-                        <img src="http://placehold.it/64x64" alt="" />
-                      </section>
-                    </section>
-                    <section class="col-md-8">
-                      <section class="list-item-content">
-                        <a href="#">Titre de la ressource</a>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit ...</p>
-                      </section>
-                    </section>
-                    <section class="col-md-2">
-                      <section class="list-item-meta">
-                      </section>
-                    </section>
-                  </section>
-                </section>
-                <section class="list-item">
-                  <section class="row">
-                    <section class="col-md-2">
-                      <section class="list-item-preview">
-                        <img src="http://placehold.it/64x64" alt="" />
-                      </section>
-                    </section>
-                    <section class="col-md-8">
-                      <section class="list-item-content">
-                        <a href="#">Titre de la ressource</a>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit ...</p>
-                      </section>
-                    </section>
-                    <section class="col-md-2">
-                      <section class="list-item-meta">
-                      </section>
-                    </section>
-                  </section>
-                </section>
-              </section>
+                {% for r in recent %}
+                  {% include 'KezacoCoreBundle:Default:_resource.html.twig' with { 'resource': r } %}
+                {% endfor %}
             </section>
           </div>
           <div class="col-xs-12 col-md-4">
@@ -72,63 +36,9 @@
                 <h3 class="pane-title">{{ 'app.popular'|trans({}, 'KezacoCoreBundle') }}</h3>
               </section>
               <section class="list-ressources">
-                <section class="list-item">
-                  <section class="row">
-                    <section class="col-md-2">
-                      <section class="list-item-preview">
-                        <img src="http://placehold.it/64x64" alt="" />
-                      </section>
-                    </section>
-                    <section class="col-md-8">
-                      <section class="list-item-content">
-                        <a href="#">Titre de la ressource</a>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit ...</p>
-                      </section>
-                    </section>
-                    <section class="col-md-2">
-                      <section class="list-item-meta">
-                      </section>
-                    </section>
-                  </section>
-                </section>
-                <section class="list-item">
-                  <section class="row">
-                    <section class="col-md-2">
-                      <section class="list-item-preview">
-                        <img src="http://placehold.it/64x64" alt="" />
-                      </section>
-                    </section>
-                    <section class="col-md-8">
-                      <section class="list-item-content">
-                        <a href="#">Titre de la ressource</a>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit ...</p>
-                      </section>
-                    </section>
-                    <section class="col-md-2">
-                      <section class="list-item-meta">
-                      </section>
-                    </section>
-                  </section>
-                </section>
-                <section class="list-item">
-                  <section class="row">
-                    <section class="col-md-2">
-                      <section class="list-item-preview">
-                        <img src="http://placehold.it/64x64" alt="" />
-                      </section>
-                    </section>
-                    <section class="col-md-8">
-                      <section class="list-item-content">
-                        <a href="#">Titre de la ressource</a>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit ...</p>
-                      </section>
-                    </section>
-                    <section class="col-md-2">
-                      <section class="list-item-meta">
-                      </section>
-                    </section>
-                  </section>
-                </section>
+                {% for p in popular %}
+                  {% include 'KezacoCoreBundle:Default:_resource.html.twig' with { 'resource': p } %}
+                {% endfor %}
               </section>
             </section>
           </div>

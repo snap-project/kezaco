@@ -126,3 +126,4 @@ fos_elastica:
                         driver: orm
                         model: Kezaco\CoreBundle\Entity\Resource
                         provider: ~
+                        finder: ~

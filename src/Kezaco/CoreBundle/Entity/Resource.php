@@ -4,6 +4,7 @@ namespace Kezaco\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use FOS\ElasticaBundle\Annotation\Search;
 
 /**
  * Resource
@@ -13,6 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="_type", type="string")
  * @ORM\DiscriminatorMap({"document" = "DocumentResource"})
+ * @Search(repositoryClass="Kezaco\CoreBundle\SearchRepository\ResourceRepository")
  */
 class Resource
 {

@@ -22,6 +22,8 @@ cd /app
 app/console doctrine:schema:update --force
 # Charger les fixtures
 app/console doctrine:fixtures:load
+# Créer les indexes ElasticSearch
+app/console fos:elastica:reset
 ```
 
 Puis ouvrez votre navigateur à l'adresse `http://localhost:8080/web`
