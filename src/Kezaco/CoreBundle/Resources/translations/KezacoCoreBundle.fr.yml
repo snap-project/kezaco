@@ -3,6 +3,8 @@ menu :
     register : S'inscrire
     profile  : Profil
     logout   : Déconnexion
+    my_resources: Mes ressources
+    register: Créer un compte
 
 buttons :
     edit : Éditer
@@ -15,3 +17,11 @@ app:
     recents : Récents
     popular : Populaires
     teaching_sequence : Séquences Pédagogiques
+    results: Résultats
+    no_results: Pas de résultats.
+
+home:
+    my_resources: Mes ressources
+    my_favorites: Mes favoris
+    activity: Flux d'activité
+    new_resource: Ajouter une nouvelle ressource

@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="kezaco_home")
+     * @Route("/", name="kezaco_index")
      * @Template()
      */
     public function indexAction()
@@ -17,7 +17,7 @@ class DefaultController extends Controller
 
         $request = $this->getRequest();
 
-        $search = $request->get('search');
+        $search = $request->get('s');
 
         $searchRepo = $this->get('fos_elastica.manager')
             ->getRepository('KezacoCoreBundle:Resource')
@@ -30,4 +30,5 @@ class DefaultController extends Controller
             'recent' => $searchRepo->findRecent()
         ];
     }
+
 }

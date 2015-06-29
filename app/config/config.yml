@@ -116,6 +116,13 @@ fos_elastica:
             port: %elasticsearch_port%
     indexes:
         kezaco:
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            my_analyzer:
+                                type: snowball
+                                language: French
             finder: ~
             index_name: kezaco_%kernel.environment%
             types:

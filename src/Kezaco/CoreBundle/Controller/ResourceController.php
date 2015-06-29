@@ -22,7 +22,7 @@ class ResourceController extends Controller
     /**
      * Creates a new Resource entity.
      *
-     * @Route("/", name="resource_create")
+     * @Route("/", name="kezaco_resource_create")
      * @Method("POST")
      * @Template("KezacoCoreBundle:Resource:new.html.twig")
      */
@@ -56,7 +56,7 @@ class ResourceController extends Controller
     private function createCreateForm(Resource $entity)
     {
         $form = $this->createForm(new ResourceType(), $entity, array(
-            'action' => $this->generateUrl('resource_create'),
+            'action' => $this->generateUrl('kezaco_resource_create'),
             'method' => 'POST',
         ));
 
@@ -68,7 +68,7 @@ class ResourceController extends Controller
     /**
      * Displays a form to create a new Resource entity.
      *
-     * @Route("/new", name="resource_new")
+     * @Route("/new", name="kezaco_resource_new")
      * @Method("GET")
      * @Template()
      */
@@ -90,7 +90,7 @@ class ResourceController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showAction($slug)
+    public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -99,8 +99,6 @@ class ResourceController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Resource entity.');
         }
-
-        if($entity->getAuthor() === $this->getUser())
 
         $deleteForm = $this->createDeleteForm($id);
 

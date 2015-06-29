@@ -26,4 +26,10 @@ app/console doctrine:fixtures:load
 app/console fos:elastica:reset
 ```
 
-Puis ouvrez votre navigateur à l'adresse `http://localhost:8080/web`
+Pour ouvrir une session Bash dans le conteneur "web":
+
+```
+docker exec -it kezaco_web_1 bash
+```
+
+Puis ouvrez votre navigateur à l'adresse `http://localhost:3000/web/app_dev.php`

@@ -5,6 +5,7 @@ namespace Kezaco\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use FOS\ElasticaBundle\Annotation\Search;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Resource
@@ -15,6 +16,7 @@ use FOS\ElasticaBundle\Annotation\Search;
  * @ORM\DiscriminatorColumn(name="_type", type="string")
  * @ORM\DiscriminatorMap({"document" = "DocumentResource"})
  * @Search(repositoryClass="Kezaco\CoreBundle\SearchRepository\ResourceRepository")
+ * @JMS\ExclusionPolicy("all")
  */
 class Resource
 {
@@ -31,13 +33,16 @@ class Resource
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255)
+     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @Gedmo\Slug(fields={"title", "id"})
      */
     private $slug;
 
@@ -45,6 +50,8 @@ class Resource
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      */
     private $description;
 
@@ -53,6 +60,8 @@ class Resource
      *
      * @ORM\Column(name="creation_date", type="datetime")
      * @Gedmo\Timestampable(on="create")
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      */
     private $creationDate;
 
@@ -61,6 +70,8 @@ class Resource
      *
      * @ORM\Column(name="last_update", type="datetime")
      * @Gedmo\Timestampable(on="update")
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      */
     private $lastUpdate;
 
@@ -69,6 +80,8 @@ class Resource
      *
      * @ORM\ManyToOne(targetEntity="Kezaco\CoreBundle\Entity\User", inversedBy="apps")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      **/
     private $author;
 
