@@ -2,7 +2,7 @@
 
 Base de données et moteur de recherche libre d'activités pédagogiques
 
-## Tester avec Docker & Compose
+## Développer / Tester avec Docker & Compose
 
 Installer [Docker](https://docs.docker.com/installation/) et [Compose](https://docs.docker.com/compose/install/)
 
@@ -26,10 +26,22 @@ app/console doctrine:fixtures:load
 app/console fos:elastica:reset
 ```
 
-Pour ouvrir une session Bash dans le conteneur "web":
+Puis ouvrez votre navigateur à l'adresse `http://localhost:3000/web/app_dev.php`
 
+### Antisèche du développeur
+
+**Ouvrir une session Bash dans le conteneur "web"**
 ```
 docker exec -it kezaco_web_1 bash
 ```
 
-Puis ouvrez votre navigateur à l'adresse `http://localhost:3000/web/app_dev.php`
+**Accéder à l'interface PHPMyAdmin**
+```
+http://localhost:3000/phpmyadmin
+```
+**Identifiants:** admin / toor
+
+**Accéder à l'interface du module Inquisitor d'ElasticSearch**
+```
+http://localhost:9200/_plugin/inquisitor/
+```
