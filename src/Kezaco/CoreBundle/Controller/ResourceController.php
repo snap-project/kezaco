@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Kezaco\CoreBundle\Entity\Resource;
 use Kezaco\CoreBundle\Entity\DocumentResource;
 use Kezaco\CoreBundle\Form\ResourceType;
+use Kezaco\CoreBundle\Form\DocumentResourceType;
 
 /**
  * Resource controller.
@@ -55,7 +56,7 @@ class ResourceController extends Controller
      */
     private function createCreateForm(Resource $entity)
     {
-        $form = $this->createForm(new ResourceType(), $entity, array(
+        $form = $this->createForm(new DocumentResourceType(), $entity, array(
             'action' => $this->generateUrl('kezaco_resource_create'),
             'method' => 'POST',
         ));

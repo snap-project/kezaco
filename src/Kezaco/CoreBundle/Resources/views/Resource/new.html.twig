@@ -6,3 +6,12 @@
     {{ form(form) }}
   </div>
 {% endblock %}
+
+{% block body_script %}
+  {{ parent() }}
+  {% javascripts
+    '@KezacoCoreBundle/Resources/public/js/resource-form.js'
+  %}
+    <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

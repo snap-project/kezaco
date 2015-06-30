@@ -15,7 +15,7 @@ class DocumentResource extends Resource
 {
 
     /**
-     * @ORM\ManyToMany(targetEntity="Kezaco\CoreBundle\Entity\Document")
+     * @ORM\ManyToMany(targetEntity="Kezaco\CoreBundle\Entity\Document", cascade="all", orphanRemoval=true)
      * @ORM\JoinTable(name="Documents_DocumentResources")
      */
     private $documents;
