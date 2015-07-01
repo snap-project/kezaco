@@ -7,7 +7,7 @@
     </section>
     <section class="col-md-8">
       <section class="list-item-content">
-        <a href="#">{{ resource.title }}</a>
+        <a href="{{ path('resource_show', {'id': resource.id}) }}">{{ resource.title }}</a>
         <p class="text-muted">{{ resource.description }}</p>
       </section>
     </section>

@@ -19,7 +19,7 @@
         </div>
         <div class="list-ressources">
           {% for r in userResources %}
-
+            {% include 'KezacoCoreBundle:Default:_resource.html.twig' with {'resource': r} %}
           {% endfor %}
         </div>
       </div>

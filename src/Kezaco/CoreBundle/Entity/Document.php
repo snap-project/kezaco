@@ -5,6 +5,7 @@ namespace Kezaco\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Document
@@ -12,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
+ * @JMS\ExclusionPolicy("all")
  */
 class Document
 {
@@ -28,6 +30,9 @@ class Document
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      */
     private $name;
 
@@ -72,6 +77,20 @@ class Document
         return $this->file;
     }
 
+    /**
+     * Get file content as base64 string.
+     *
+     * @return string
+     *
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("content")
+     * @JMS\Groups({"elastica"})
+     */
+    public function getContent()
+    {
+        return base64_encode(file_get_contents($this->getAbsolutePath()));
+    }
+
 
     /**
      * Get id
@@ -100,6 +119,7 @@ class Document
      * Get name
      *
      * @return string
+     * @JMS\Groups({"elastica"})
      */
     public function getName()
     {
@@ -157,7 +177,7 @@ class Document
     public function preUpload()
     {
         if (null !== $this->getFile()) {
-            $this->path = $this->getFile()->guessExtension();
+            $this->extension = $this->getFile()->guessExtension();
         }
     }
 

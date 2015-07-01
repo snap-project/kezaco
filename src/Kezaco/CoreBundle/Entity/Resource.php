@@ -80,8 +80,6 @@ class Resource
      *
      * @ORM\ManyToOne(targetEntity="Kezaco\CoreBundle\Entity\User", inversedBy="apps")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
-     * @JMS\Expose
-     * @JMS\Groups({"elastica"})
      **/
     private $author;
 

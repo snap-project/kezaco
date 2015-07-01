@@ -1,43 +1,45 @@
 {% extends '::base.html.twig' %}
 
 {% block body_container -%}
-    <h1>Resource</h1>
+  <div class="col-md-6 col-md-offset-3">
+      <h1>Resource</h1>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ entity.slug }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Creationdate</th>
-                <td>{{ entity.creationDate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Lastupdate</th>
-                <td>{{ entity.lastUpdate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
-    </table>
+      <table class="record_properties">
+          <tbody>
+              <tr>
+                  <th>Id</th>
+                  <td>{{ entity.id }}</td>
+              </tr>
+              <tr>
+                  <th>Title</th>
+                  <td>{{ entity.title }}</td>
+              </tr>
+              <tr>
+                  <th>Slug</th>
+                  <td>{{ entity.slug }}</td>
+              </tr>
+              <tr>
+                  <th>Description</th>
+                  <td>{{ entity.description }}</td>
+              </tr>
+              <tr>
+                  <th>Creationdate</th>
+                  <td>{{ entity.creationDate|date('Y-m-d H:i:s') }}</td>
+              </tr>
+              <tr>
+                  <th>Lastupdate</th>
+                  <td>{{ entity.lastUpdate|date('Y-m-d H:i:s') }}</td>
+              </tr>
+          </tbody>
+      </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('resource_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+          <ul class="record_actions">
+      <li>
+          <a href="{{ path('resource_edit', { 'id': entity.id }) }}">
+              Edit
+          </a>
+      </li>
+      <li>{{ form(delete_form) }}</li>
+    </ul>
+  </div>
 {% endblock %}

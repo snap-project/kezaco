@@ -34,6 +34,9 @@ class ResourceController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            $entity->setAuthor($this->getUser());
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -210,7 +213,7 @@ class ResourceController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('resource'));
+        return $this->redirect($this->generateUrl('kezaco_home'));
     }
 
     /**

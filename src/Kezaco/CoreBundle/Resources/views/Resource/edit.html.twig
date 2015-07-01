@@ -1,16 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body_container -%}
+  <div class="col-md-6 col-md-offset-3">
     <h1>Resource edit</h1>
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('resource') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+      <li>{{ form(delete_form) }}</li>
+    </ul>
+  </div>
 {% endblock %}

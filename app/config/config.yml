@@ -127,10 +127,19 @@ fos_elastica:
             index_name: kezaco_%kernel.environment%
             types:
                 resource:
+                    mappings:
+                        documents:
+                            type: nested
+                            properties:
+                                name: ~
+                                content:
+                                    type: attachment
+                                    store: false
                     serializer:
-                        groups: ['elastica', 'Default']
+                        groups: [elastica, Default]
                     persistence:
                         driver: orm
                         model: Kezaco\CoreBundle\Entity\Resource
                         provider: ~
                         finder: ~
+                        listener: ~

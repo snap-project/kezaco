@@ -14,8 +14,16 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
+
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+
+        $userResources = $em->getRepository('KezacoCoreBundle:Resource')
+            ->findByAuthor($user)
+        ;
+
         return [
-            'userResources' => [],
+            'userResources' => $userResources,
             'favorites' => []
         ];
     }

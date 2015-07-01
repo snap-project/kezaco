@@ -4,12 +4,14 @@ namespace Kezaco\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Kezaco\CoreBundle\Entity\Resource;
+use JMS\Serializer\Annotation as JMS;
 
 /**
- * Resource
+ * DocumentResource
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @JMS\ExclusionPolicy("all")
  */
 class DocumentResource extends Resource
 {
@@ -17,6 +19,8 @@ class DocumentResource extends Resource
     /**
      * @ORM\ManyToMany(targetEntity="Kezaco\CoreBundle\Entity\Document", cascade="all", orphanRemoval=true)
      * @ORM\JoinTable(name="Documents_DocumentResources")
+     * @JMS\Expose
+     * @JMS\Groups({"elastica"})
      */
     private $documents;
 
