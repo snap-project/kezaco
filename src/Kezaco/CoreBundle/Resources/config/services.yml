@@ -1,1 +1,20 @@
+parameters:
+    kezaco_core.service.search.class: Kezaco\CoreBundle\Service\Search
+    kezaco_core.service.json_api_client.class: Kezaco\CoreBundle\Service\JsonApiClient
+    kezaco_core.listener.abuledu_before_search.class: Kezaco\CoreBundle\EventListener\AbuleduSearchListener
 
+services:
+    kezaco_core.service.search:
+        class: "%kezaco_core.service.search.class%"
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+
+    kezaco_core.service.json_api_client:
+        class: "%kezaco_core.service.json_api_client.class%"
+
+    kezaco_core.listener.abuledu_before_search:
+        class: "%kezaco_core.listener.abuledu_before_search.class%"
+        arguments:
+            - @kezaco_core.service.json_api_client
+        tags:
+            - { name: kernel.event_listener, event: kezaco_core.search.before, method: onBeforeSearch }

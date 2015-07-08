@@ -17,17 +17,17 @@ class DefaultController extends Controller
 
         $request = $this->getRequest();
 
-        $search = $request->get('s');
+        $searchTerms = $request->get('s');
 
-        $searchRepo = $this->get('fos_elastica.manager')
-            ->getRepository('KezacoCoreBundle:Resource')
+        $searchResults = $this->get('kezaco_core.service.search')
+            ->search($searchTerms)
         ;
 
         return [
-            'search' => $search,
-            'results' => $searchRepo->find($search),
-            'popular' => $searchRepo->findPopular(),
-            'recent' => $searchRepo->findRecent()
+            'search' => $searchTerms,
+            'results' => $searchResults,
+            'popular' => $searchResults,
+            'recent' => $searchResults
         ];
     }
 
