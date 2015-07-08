@@ -37,8 +37,8 @@ assetic:
     use_controller: false
     bundles:
         - KezacoCoreBundle
-        - KezacoAdminBundle
-        - KezacoEditorBundle
+        #- KezacoAdminBundle
+        #- KezacoEditorBundle
     filters:
         lessphp:
             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
@@ -107,3 +107,39 @@ fos_rest:
             rss: false
         failed_validation: HTTP_BAD_REQUEST
         view_response_listener: force
+
+fos_elastica:
+    serializer: ~
+    clients:
+        default:
+            host: "%elasticsearch_host%"
+            port: %elasticsearch_port%
+    indexes:
+        kezaco:
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            my_analyzer:
+                                type: snowball
+                                language: French
+            finder: ~
+            index_name: kezaco_%kernel.environment%
+            types:
+                resource:
+                    mappings:
+                        documents:
+                            type: nested
+                            properties:
+                                name: ~
+                                content:
+                                    type: attachment
+                                    store: false
+                    serializer:
+                        groups: [elastica, Default]
+                    persistence:
+                        driver: orm
+                        model: Kezaco\CoreBundle\Entity\Resource
+                        provider: ~
+                        finder: ~
+                        listener: ~

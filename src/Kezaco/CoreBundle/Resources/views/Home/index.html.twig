@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body_container %}
+  <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="{{ path('kezaco_resource_new') }}" class="btn btn-success pull-right">
+          {{ 'home.new_resource'|trans({}, 'KezacoCoreBundle') }} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pane">
+          <div class="pane-header">
+            <h3 class="pane-title">{{ 'home.my_resources'|trans({}, 'KezacoCoreBundle') }}</h3>
+          </div>
+        </div>
+        <div class="list-ressources">
+          {% for r in userResources %}
+            {% include 'KezacoCoreBundle:Default:_resource.html.twig' with {'resource': r} %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

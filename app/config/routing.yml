@@ -1,25 +1,10 @@
-kezaco_mediatheque:
-    resource: "@KezacoMediathequeBundle/Controller/"
+kezaco_core:
+    resource: "@KezacoCoreBundle/Controller/"
     type:     annotation
     prefix:   /
-
-kezaco_core_app_api:
-    resource: "@KezacoCoreBundle/Controller/AppRESTController.php"
-    type:   rest
-    prefix:   /api
 
 kezaco_admin:
     resource: "@KezacoAdminBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-kezaco_editor:
-    resource: "@KezacoEditorBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-kezaco_core:
-    resource: "@KezacoCoreBundle/Controller/"
     type:     annotation
     prefix:   /
 

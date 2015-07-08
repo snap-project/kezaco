@@ -51,11 +51,12 @@
         "twbs/bootstrap": "^3.3",
         "jquery/jquery":  "1.11.*",
         "oyejorge/less.php": "v1.7.0.3",
-        "snap-project/app-builder": "dev-develop",
         "friendsofsymfony/rest-bundle": "^1.5",
         "jms/serializer-bundle": "^0.13.0",
         "voryx/restgeneratorbundle": "^0.2.0",
-        "gedmo/doctrine-extensions": "^2.4"
+        "gedmo/doctrine-extensions": "^2.4",
+        "doctrine/doctrine-fixtures-bundle": "^2.2",
+        "friendsofsymfony/elastica-bundle": "^3.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -73,8 +74,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-            "php app/console assets:install --symlink",
-            "./scripts/install-editor.sh"
+            "php app/console assets:install --symlink"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -85,8 +85,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-            "php app/console assets:install --symlink",
-            "./scripts/install-editor.sh"
+            "php app/console assets:install --symlink"
         ]
     },
     "config": {

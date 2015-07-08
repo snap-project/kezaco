@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body_container -%}
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Resource creation</h1>
+    {{ form(form) }}
+  </div>
+{% endblock %}
+
+{% block body_script %}
+  {{ parent() }}
+  {% javascripts
+    '@KezacoCoreBundle/Resources/public/js/resource-form.js'
+  %}
+    <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

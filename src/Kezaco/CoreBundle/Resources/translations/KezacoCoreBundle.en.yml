@@ -1,0 +1,27 @@
+menu :
+    login    : Login
+    register : Register
+    profile  : Profile
+    logout   : Logout
+    my_resources: My resources
+    register: Register
+
+buttons :
+    edit : Edit
+    cancel : Cancel
+
+search :
+    search : Search
+
+app:
+    recents : Recent
+    popular : Popular
+    teaching_sequence : Teaching Sequences
+    results: Results
+    no_results: No results.
+
+home:
+    my_resources: My resources
+    my_favorites: My favorites
+    activity: Activity
+    new_resource: Add new resource

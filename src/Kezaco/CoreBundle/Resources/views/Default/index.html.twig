@@ -1,1 +1,28 @@
-{% extends "::layout.html.twig" %}
+{% extends "::base.html.twig" %}
+
+
+{% block body_container %}
+
+  <div class="header-area">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="search-form">
+            {% include 'KezacoCoreBundle:Default:_search.html.twig' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      {% if search is not empty %}
+        {% include 'KezacoCoreBundle:Default:_results.html.twig' %}
+      {% else %}
+        {% include 'KezacoCoreBundle:Default:_suggestions.html.twig' %}
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

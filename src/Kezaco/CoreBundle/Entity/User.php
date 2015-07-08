@@ -4,13 +4,13 @@ namespace Kezaco\CoreBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-
+use JMS\Serializer\Annotation as JMS;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
  *
- * @ORM\Table("users")
+ * @ORM\Table()
  * @ORM\Entity
  */
 class User extends BaseUser
@@ -25,53 +25,21 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var Entity
-     *
-     * @ORM\ManyToMany(targetEntity="Kezaco\MediathequeBundle\Entity\Media", inversedBy="users")
-     * @ORM\JoinTable(name="user_media")
-     */
-    protected $medias;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
       parent::__construct();
-      $this->medias = new ArrayCollection();
     }
 
-    /**
-     * Add medias
-     *
-     * @param \Kezaco\MediathequeBundle\Entity\Media $medias
-     * @return User
-     */
-    public function addMedia(\Kezaco\MediathequeBundle\Entity\Media $medias)
-    {
-        //$medias->addUser($this);
-        $this->medias[] = $medias;
-
-        return $this;
-    }
 
     /**
-     * Remove medias
+     * Get id
      *
-     * @param \Kezaco\MediathequeBundle\Entity\Media $medias
+     * @return integer
      */
-    public function removeMedia(\Kezaco\MediathequeBundle\Entity\Media $medias)
+    public function getId()
     {
-        $this->medias->removeElement($medias);
-    }
-
-    /**
-     * Get medias
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMedias()
-    {
-        return $this->medias;
+        return $this->id;
     }
 }
