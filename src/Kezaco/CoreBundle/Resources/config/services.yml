@@ -16,5 +16,6 @@ services:
         class: "%kezaco_core.listener.abuledu_before_search.class%"
         arguments:
             - @kezaco_core.service.json_api_client
+            - @doctrine.orm.entity_manager
         tags:
             - { name: kernel.event_listener, event: kezaco_core.search.before, method: onBeforeSearch }

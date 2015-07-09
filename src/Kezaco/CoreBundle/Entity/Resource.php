@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation as JMS;
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="_type", type="string")
- * @ORM\DiscriminatorMap({"document" = "DocumentResource"})
+ * @ORM\DiscriminatorMap({"document" = "DocumentResource", "remote" = "RemoteResource"})
  * @Search(repositoryClass="Kezaco\CoreBundle\SearchRepository\ResourceRepository")
  * @JMS\ExclusionPolicy("all")
  */

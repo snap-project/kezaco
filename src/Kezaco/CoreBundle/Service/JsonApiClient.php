@@ -14,7 +14,7 @@ class JsonApiClient {
 
         $response = curl_exec($ch);
 
-        return json_decode($response);
+        return json_decode($response, true);
     }
 
 }
