@@ -1,0 +1,17 @@
+parameters:
+    kezaco_abuledu.listener.abuledu_before_search.class: Kezaco\AbuleduBundle\EventListener\AbuleduSearchListener
+    kezaco_abuledu.service.search_cache.class: Doctrine\Common\Cache\ApcCache
+
+services:
+
+    kezaco_abuledu.service.search_cache:
+        class: "%kezaco_abuledu.service.search_cache.class%"
+
+    kezaco_abuledu.listener.abuledu_before_search:
+        class: "%kezaco_abuledu.listener.abuledu_before_search.class%"
+        arguments:
+            - @kezaco_core.service.json_api_client
+            - @doctrine.orm.entity_manager
+            - @kezaco_abuledu.service.search_cache
+        tags:
+            - { name: kernel.event_listener, event: kezaco_core.search.before, method: onBeforeSearch }

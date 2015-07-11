@@ -28,6 +28,7 @@ class AppKernel extends Kernel
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
             new Kezaco\AdminBundle\KezacoAdminBundle(),
+            new Kezaco\AbuleduBundle\KezacoAbuleduBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

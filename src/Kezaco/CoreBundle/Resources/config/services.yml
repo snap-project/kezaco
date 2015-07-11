@@ -1,1 +1,18 @@
+parameters:
+    kezaco_core.service.search.class: Kezaco\CoreBundle\Service\Search
+    kezaco_core.service.json_api_client.class: Kezaco\CoreBundle\Service\JsonApiClient
 
+services:
+    kezaco_core.service.search:
+        class: "%kezaco_core.service.search.class%"
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
+
+    kezaco_core.service.json_api_client:
+        class: "%kezaco_core.service.json_api_client.class%"
+
+    kezaco_core.twig_extension:
+        class: Kezaco\CoreBundle\Twig\KezacoCoreExtension
+        public: false
+        tags:
+            - { name: twig.extension }

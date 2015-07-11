@@ -7,7 +7,11 @@
     </section>
     <section class="col-md-8">
       <section class="list-item-content">
-        <a href="{{ path('resource_show', {'id': resource.id}) }}">{{ resource.title }}</a>
+        {% if resource is instanceof('Kezaco\\CoreBundle\\Entity\\RemoteResource') %}
+          <a href="{{ resource.url }}" target="_blank">{{ resource.title }} ({{resource.source}})</a>
+        {% else %}
+          <a href="{{ path('resource_show', {'id': resource.id}) }}">{{ resource.title }}</a>
+        {% endif %}
         <p class="text-muted">{{ resource.description }}</p>
       </section>
     </section>
