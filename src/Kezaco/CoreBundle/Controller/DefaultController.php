@@ -16,8 +16,9 @@ class DefaultController extends Controller
     {
 
         $request = $this->getRequest();
-
         $searchTerms = $request->get('s');
+
+        if( empty($searchTerms) ) return ['search' => ''];
 
         $searchResults = $this->get('kezaco_core.service.search')
             ->search($searchTerms)
@@ -25,9 +26,7 @@ class DefaultController extends Controller
 
         return [
             'search' => $searchTerms,
-            'results' => $searchResults,
-            'popular' => $searchResults,
-            'recent' => $searchResults
+            'results' => $searchResults
         ];
     }
 

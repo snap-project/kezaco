@@ -8,7 +8,7 @@
       </section>
       <section class="list-ressources">
         {% for r in results %}
-          {% include 'KezacoCoreBundle:Default:_resource.html.twig' with { 'resource': r } %}
+          {% include 'KezacoCoreBundle:Partials:_resource.html.twig' with { 'resource': r } %}
         {% else %}
           <p>{{ 'app.no_results'|trans({}, 'KezacoCoreBundle') }}</p>
         {% endfor %}

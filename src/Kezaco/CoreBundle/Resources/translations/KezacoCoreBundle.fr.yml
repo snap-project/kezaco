@@ -19,6 +19,7 @@ app:
     teaching_sequence : Séquences Pédagogiques
     results: Résultats
     no_results: Pas de résultats.
+    catch_phrase: "Moteur de recherche des ressources éducatives libres."
 
 home:
     my_resources: Mes ressources

@@ -19,6 +19,7 @@ app:
     teaching_sequence : Teaching Sequences
     results: Results
     no_results: No results.
+    catch_phrase: "Free educational resources search engine"
 
 home:
     my_resources: My resources
