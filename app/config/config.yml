@@ -65,11 +65,11 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
-braincrafted_bootstrap:
-    auto_configure:
-        assetic: true
-    less_filter: lessphp
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.2.js
+#braincrafted_bootstrap:
+#    auto_configure:
+#        assetic: true
+#    less_filter: lessphp
+#    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.2.js
 
 
 # Swiftmailer Configuration
