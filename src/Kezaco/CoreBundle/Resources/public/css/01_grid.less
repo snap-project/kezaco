@@ -1,0 +1,158 @@
+// Grid
+@columns : 12;
+@gutterWidth : 36px;
+@columnWidth : 100%/@columns;
+// Break-points
+@screenTablet: 	768px;
+@screenDesktop: 992px;
+@screenLarge:   1200px;
+// Mixins
+.clearfix {
+	zoom: 1;
+	&:after {
+    	display: block;
+		visibility: hidden;
+    	height: 0;
+    	clear: both;
+    	content: ".";
+	}
+}
+
+// CSS
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.pull-right { float: right; }
+.pull-left 	{ float: left;  }
+
+[class*="col-"] {
+	position: relative;
+}
+
+.col-m-show { display: block; }
+
+.col-m-hide,
+.col-t-show,
+.col-d-show,
+.col-l-show {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.row {
+	position: relative;
+  padding: 0 @gutterWidth / 2;
+  margin : 0 @gutterWidth * -.5;
+  .clearfix();
+}
+
+.row .row{
+  padding: 0;
+}
+
+// generation des colonnes (mobile)
+.kezaco (@index) when (@index > 0) {
+	.col-m-@{index} {
+		width: @columnWidth * @index;
+		float: left;
+		padding-right: @gutterWidth / 2;
+		padding-left: @gutterWidth / 2;
+	}
+	.col-m-push-@{index} {
+		margin-left: @columnWidth * @index;
+	}
+	.kezaco(@index - 1);
+}
+.kezaco (0) {}
+.kezaco (@columns);
+
+// tablettes
+@media (min-width: @screenTablet) {
+  .kezaco (@index) when (@index > 0) {
+  	.col-t-@{index} {
+  		width: @columnWidth * @index;
+  		float: left;
+  		padding-right: @gutterWidth / 2;
+  		padding-left: @gutterWidth / 2;
+  	}
+		.col-t-push-@{index} {
+			margin-left: @columnWidth * @index;
+		}
+  	.kezaco(@index - 1);
+  }
+  .kezaco (0) {}
+  .kezaco (@columns);
+
+  .col-t-show,
+  .col-m-hide { display: block; }
+
+  .col-m-show,
+  .col-t-hide,
+  .col-d-show,
+  .col-l-show {
+    display: none;
+  }
+}
+
+// desktop
+@media (min-width: @screenDesktop) {
+  .kezaco (@index) when (@index > 0) {
+		.col-d-@{index} {
+			padding-left: @gutterWidth / 2;
+			padding-right: @gutterWidth / 2;
+			width: @columnWidth * @index;
+			float: left;
+		}
+		.col-d-push-@{index} {
+			margin-left: @columnWidth * @index;
+		}
+		.kezaco(@index - 1);
+	}
+	.kezaco (0) {}
+	.kezaco (@columns);
+
+  .col-d-show,
+  .col-t-hide { display: block; }
+
+  .col-m-show,
+  .col-t-show,
+  .col-d-hide,
+  .col-l-show {
+    display: none;
+  }
+}
+
+// Large screen
+@media (min-width: @screenLarge) {
+  .kezaco (@index) when (@index > 0) {
+		.col-l-@{index} {
+			padding-left: @gutterWidth / 2;
+			padding-right: @gutterWidth / 2;
+			width: @columnWidth * @index;
+			float: left;
+		}
+		.col-l-push-@{index} {
+			margin-left: @columnWidth * @index;
+		}
+		.kezaco(@index - 1);
+	}
+	.kezaco (0) {}
+	.kezaco (@columns);
+
+  .col-l-show,
+  .col-d-hide { display: block; }
+
+  .col-m-show,
+  .col-t-show,
+  .col-d-show,
+  .col-l-hide {
+    display: none;
+  }
+}

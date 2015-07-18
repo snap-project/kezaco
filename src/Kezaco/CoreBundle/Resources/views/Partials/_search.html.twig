@@ -1,5 +1,6 @@
-<form class="form searchForm" action="{{ path('kezaco_index', {'search': search }) }}" method="get">
-  <div class="search-input-control">
-    <input type="search" id="searchInput" value="{{search}}" name="s" placeholder="{{ 'search.search'|trans({}, 'KezacoCoreBundle') }}">
-  </div>
-</form>
+
+    <form class="searchForm" action="{{ path('kezaco_index', {'search': search }) }}" method="get">
+      <div class="form-group">
+        <input type="search" class="form-input" id="searchInput" value="{{search}}" name="s" placeholder="{{ 'search.search'|trans({}, 'KezacoCoreBundle') }}">
+      </div>
+    </form>

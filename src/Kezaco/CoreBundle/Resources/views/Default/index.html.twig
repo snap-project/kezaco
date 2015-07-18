@@ -6,23 +6,26 @@
     {% include 'KezacoCoreBundle:Partials:_navbar.html.twig' with {"showBrand": false}%}
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <img alt="Logo" src="{{ asset('bundles/kezacocore/img/logo.svg') }}" class="img-responsive center-block" style="height: 100px; margin-top:150px">
-          {% include 'KezacoCoreBundle:Partials:_search.html.twig' %}
-          <p class="lead text-center">{{ 'app.catch_phrase'|trans({}, 'KezacoCoreBundle') }}</p>
-        </div>
+        <div class="col-m-12 col-t-8 col-d-4 col-m-push-0 col-t-push-2 col-d-push-4">
+          <div class="indexSearchForm">
+            <img alt="Logo" src="{{ asset('bundles/kezacocore/img/logo.svg') }}" class="img-responsive center-block" style="height: 100px; margin-top:150px">
+            {% include 'KezacoCoreBundle:Partials:_search.html.twig' %}
+            <p class="lead text-center">{{ 'app.catch_phrase'|trans({}, 'KezacoCoreBundle') }}</p>
+          </div>
+          </div>
       </div>
     </div>
   {% else %}
     {% include 'KezacoCoreBundle:Partials:_navbar.html.twig' %}
-    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-m-12 col-d-6">
           {% include 'KezacoCoreBundle:Partials:_search.html.twig' %}
         </div>
       </div>
       <div class="row">
-        {% include 'KezacoCoreBundle:Default:_results.html.twig' %}
+        <div class="col-m-12 col-d-6">
+          {% include 'KezacoCoreBundle:Default:_results.html.twig' %}
+        </div>
       </div>
     </div>
   {% endif %}

@@ -1,0 +1,44 @@
+@navbar-bgcolor : #FFFFFF;
+@navbar-font-family : 'ralewayregular';
+@navbar-min-height : 55px;
+@navbar-line-height : 55px;
+
+@navbar-brand-line-height : 55px;
+@navbar-brand-bgcolor : #FFFFFF;
+@navbar-brand-width : 100%;
+
+@navbar-link-color : #2C3E50;
+@navbar-link-hover-color : #9b59b6;
+@navbar-link-padding : 15px;
+
+.navbar {
+  background: @navbar-bgcolor;
+  min-height: @navbar-min-height;
+  line-height: @navbar-line-height;
+  font-family: @navbar-font-family;
+}
+
+.navbar-brand,
+.navbar-link {
+  line-height: 1;
+  transition: all .2s;
+  text-decoration: none;
+  color: @navbar-link-color;
+  display: inline-block;
+}
+
+.navbar-link {
+  padding: 0 @navbar-link-padding;
+}
+
+.navbar-link:hover {
+  color: @navbar-link-hover-color;
+}
+
+.navbar-brand {
+  display: block;
+  line-height: @navbar-brand-line-height;
+  background: @navbar-brand-bgcolor;
+  width: @navbar-brand-width;
+  text-align: left;
+}

@@ -24,6 +24,8 @@ app/console doctrine:schema:update --force
 app/console doctrine:fixtures:load
 # Créer les indexes ElasticSearch
 app/console fos:elastica:reset
+# Charger les assets
+app/console assets:install web --symlink
 ```
 
 Puis ouvrez votre navigateur à l'adresse `http://localhost:3000/web/app_dev.php`

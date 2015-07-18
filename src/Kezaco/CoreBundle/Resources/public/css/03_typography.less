@@ -1,0 +1,112 @@
+// headings
+@h1-font-size : 36px;
+@h2-font-size : 30px;
+@h3-font-size : 24px;
+@h4-font-size : 18px;
+@h5-font-size : 14px;
+@h6-font-size : 12px;
+@h1-line-height : 40px;
+@h2-line-height : 40px;
+@h3-line-height : 40px;
+@h4-line-height : 20px;
+@h5-line-height : 20px;
+@h6-line-height : 20px;
+@heading-color : #2C3E50;
+@heading-font-family : "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// paragraph
+@p-font-family  : "Helvetica Neue", Helvetica, Arial, sans-serif;
+@p-font-size    : 16px;
+@p-line-height  : 1.4;
+@p-margin-bottom: 20px;
+@p-color        : #34495E;
+
+// lists
+@list-item-line-height : 1.6;
+
+// font face
+@font-face {
+    font-family: 'ralewaybold';
+    src: url('../fonts/raleway-bold-webfont.eot');
+    src: url('../fonts/raleway-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-bold-webfont.woff2') format('woff2'),
+         url('../fonts/raleway-bold-webfont.woff') format('woff'),
+         url('../fonts/raleway-bold-webfont.ttf') format('truetype'),
+         url('../fonts/raleway-bold-webfont.svg#ralewaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ralewayextrabold';
+    src: url('../fonts/raleway-extrabold-webfont.eot');
+    src: url('../fonts/raleway-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-extrabold-webfont.woff2') format('woff2'),
+         url('../fonts/raleway-extrabold-webfont.woff') format('woff'),
+         url('../fonts/raleway-extrabold-webfont.ttf') format('truetype'),
+         url('../fonts/raleway-extrabold-webfont.svg#ralewayextrabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ralewayextralight';
+    src: url('../fonts/raleway-extralight-webfont.eot');
+    src: url('../fonts/raleway-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-extralight-webfont.woff2') format('woff2'),
+         url('../fonts/raleway-extralight-webfont.woff') format('woff'),
+         url('../fonts/raleway-extralight-webfont.ttf') format('truetype'),
+         url('../fonts/raleway-extralight-webfont.svg#ralewayextralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ralewayregular';
+    src: url('../fonts/raleway-regular-webfont.eot');
+    src: url('../fonts/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-regular-webfont.woff2') format('woff2'),
+         url('../fonts/raleway-regular-webfont.woff') format('woff'),
+         url('../fonts/raleway-regular-webfont.ttf') format('truetype'),
+         url('../fonts/raleway-regular-webfont.svg#ralewayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// headings
+h1, h2, h3,
+h4, h5, h6 {
+  color : @heading-color;
+  font-family: 'ralewayregular';
+  font-weight: normal;
+}
+
+h1 {
+  font-size: @h1-font-size;
+  line-height: @h1-line-height;
+}
+
+h2 {
+  font-size: @h2-font-size;
+  line-height: @h2-line-height;
+}
+
+// paragraphs
+p,
+ul {
+  font-family: @p-font-family;
+  display: block;
+  overflow: hidden;
+  line-height: @p-line-height;
+  margin-bottom: @p-margin-bottom;
+  font-size : @p-font-size;
+  color : @p-color;
+}
+
+ul > li {
+  line-height : @list-item-line-height;
+}

@@ -9,8 +9,8 @@
         <title>{% block head_title %}Kezaco{% endblock %}</title>
         {% block head_style %}
           {% stylesheets
-            '@bootstrap_css'
-            '@KezacoCoreBundle/Resources/public/css/theme.less'
+            '@KezacoCoreBundle/Resources/public/css/kezaco.less'
+            '@KezacoCoreBundle/Resources/public/css/style.less'
           %}
             <link href="{{ asset_url }}" rel="stylesheet" media="screen">
           {% endstylesheets %}
@@ -18,11 +18,15 @@
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
       {% endblock %}
   </head>
-  <body>
+  <body class="container">
       {% block body %}
         {{ block('body_container') }}
         {% block body_script %}
-          {% javascripts %}
+          {% javascripts
+            '@KezacoCoreBundle/Resources/public/js/jquery.js'
+            '@KezacoCoreBundle/Resources/public/js/kezaco.js'
+          %}
+
             <script src="{{ asset_url }}"></script>
           {% endjavascripts %}
         {% endblock %}

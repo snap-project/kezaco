@@ -1,0 +1,48 @@
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+.form-group::before,
+.form-group::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.form-group::before {
+  width: 100%;
+  background: #d0d0d0;
+}
+
+.form-group::after {
+  margin: auto;
+  width: 0;
+  transition: all .3s;
+}
+
+.form-group.focused::after {
+  width: 100%;
+  background: #3498db;
+}
+
+label {
+  color: #424242;
+  display: block;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+label.focused {
+  color: #3498db;
+}
+
+.form-input {
+  border : none;
+  background : transparent;
+  color: #666;
+  width: 100%;
+  padding: 10px 0;
+}

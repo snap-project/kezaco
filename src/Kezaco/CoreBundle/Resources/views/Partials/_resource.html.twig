@@ -1,23 +1,10 @@
 <section class="list-item">
-  <section class="row">
-    <section class="col-md-2">
-      <section class="list-item-preview">
-        <img src="http://placehold.it/64x64" alt="" />
-      </section>
-    </section>
-    <section class="col-md-8">
-      <section class="list-item-content">
-        {% if resource is instanceof('Kezaco\\CoreBundle\\Entity\\RemoteResource') %}
-          <a href="{{ resource.url }}" target="_blank">{{ resource.title }} ({{resource.source}})</a>
-        {% else %}
-          <a href="{{ path('resource_show', {'id': resource.id}) }}">{{ resource.title }}</a>
-        {% endif %}
-        <p class="text-muted">{{ resource.description }}</p>
-      </section>
-    </section>
-    <section class="col-md-2">
-      <section class="list-item-meta">
-      </section>
-    </section>
+  <section class="list-item-content">
+    {% if resource is instanceof('Kezaco\\CoreBundle\\Entity\\RemoteResource') %}
+      <a href="{{ resource.url }}" target="_blank">{{ resource.title }} ({{resource.source}})</a>
+    {% else %}
+      <a href="{{ path('resource_show', {'id': resource.id}) }}">{{ resource.title }}</a>
+    {% endif %}
+    <p class="text-muted">{{ resource.description }}</p>
   </section>
 </section>
