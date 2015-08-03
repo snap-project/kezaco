@@ -8,14 +8,14 @@
         {% endblock %}
         <title>{% block head_title %}Kezaco{% endblock %}</title>
         {% block head_style %}
-          {% stylesheets
-            '@KezacoCoreBundle/Resources/public/css/kezaco.less'
-            '@KezacoCoreBundle/Resources/public/css/style.less'
+          {% stylesheets filter='cssrewrite'
+            'bundles/kezacocore/css/kezaco.less'
+            'bundles/kezacocore/css/style.less'
           %}
             <link href="{{ asset_url }}" rel="stylesheet" media="screen">
           {% endstylesheets %}
         {% endblock %}
-        
+
       {% endblock %}
   </head>
   <body class="container">
