@@ -1,0 +1,50 @@
+fos_elastica:
+    serializer: ~
+    clients:
+        default:
+            host: "%elasticsearch_host%"
+            port: %elasticsearch_port%
+    indexes:
+        kezaco:
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            default_search:
+                                type: custom
+                                tokenizer: letter
+                                filter: [lowercase, asciifolding, kezaco_snowball, kezaco_length]
+                        filter:
+                            kezaco_snowball:
+                                type: snowball
+                                name: French
+                            kezaco_length:
+                                type: length
+                                min: 4
+
+            finder: ~
+            index_name: kezaco_%kernel.environment%
+            types:
+                resource:
+                    mappings:
+                        title:
+                            boost: 10
+                        description:
+                            boost: 7
+                        documents:
+                            type: nested
+                            properties:
+                                name: ~
+                                content:
+                                    type: attachment
+                                    store: false
+                    serializer:
+                        groups: [elastica, Default]
+                    persistence:
+                        driver: orm
+                        model: Kezaco\CoreBundle\Entity\Resource
+                        provider: ~
+                        finder: ~
+                        listener: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true

@@ -3,4 +3,4 @@ kezaco_abuledu:
         source_id: "data.abuledu.org"
         search_url_pattern: "http://data.abuledu.org/search.php?terms=%s"
         resource_url_pattern: "http://data.abuledu.org/wp/?LOM=%s"
-        refresh_rate: 60000
+        refresh_rate: 10
