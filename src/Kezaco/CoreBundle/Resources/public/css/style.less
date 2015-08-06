@@ -3,6 +3,9 @@
 @screenDesktop: 992px;
 @screenLarge:   1200px;
 
+@mainTextColor: #333;
+@secondaryTextColor: lighten(@mainTextColor, 25%);
+
 html,
 body {
   height: 100%;
@@ -13,21 +16,72 @@ a {
   text-decoration: none;
 }
 
-.indexSearchForm {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 100%;
-  text-align: center;
+.search {
+
+    .search-form {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+        text-align: center;
+    }
+
+    .index-search-form {
+
+        display: inline-block;
+        max-width: 100%;
+
+        input[type="search"] {
+            font-size: 28px;
+        }
+    }
+
 }
 
-.indexSearchForm img {
-  display: inline-block;
-  max-width: 100%;
+.resource-excerpt {
+
+    margin-bottom: 25px;
+
+    .resource-title {
+
+        margin: 0 0 5px 0;
+
+        > a {
+            color: @mainTextColor;
+            font-weight: bold;
+        }
+    }
+
+    .resource-description {
+        color: @secondaryTextColor;
+        margin: 0;
+        font-size: 0.9em;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 2em;
+        line-height: 1em;
+    }
+
+    .resource-props {
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8em;
+        color: lighten(@secondaryTextColor, 10%);
+
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+    }
 }
 
-.indexSearchForm input[type="search"] {
-  font-size: 28px;
+.navigation {
+    font-family: 'ralewayregular';
+    font-size: 1.1em;
 }
 
 @media (min-width: @screenTablet) {

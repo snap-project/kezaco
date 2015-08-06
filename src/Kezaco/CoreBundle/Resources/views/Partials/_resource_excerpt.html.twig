@@ -1,0 +1,11 @@
+<section class="resource-excerpt">
+  <h3 class="resource-title">
+    <a href="{{ path('kezaco_show_resource', {'slug': resource.slug}) }}">{{ resource.title }}</a>
+  </h3>
+  <p class="resource-description">{% if resource.description %}{{ resource.description }} {% else %}<i>{{ 'resource.no_description'|trans({}, 'KezacoCoreBundle') }}</i>{% endif %}</p>
+  <ul class="resource-props">
+    {% if resource.source is defined %}
+      <li>{{ 'resource.source'|trans({}, 'KezacoCoreBundle') }}: {{ resource.source }}</li>
+    {% endif %}
+  </ul>
+</section>

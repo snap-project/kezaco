@@ -26,3 +26,7 @@ home:
     my_favorites: My favorites
     activity: Activity
     new_resource: Add new resource
+
+resource:
+    source: Source
+    no_description: No description

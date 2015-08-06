@@ -26,3 +26,7 @@ home:
     my_favorites: Mes favoris
     activity: Flux d'activité
     new_resource: Ajouter une nouvelle ressource
+
+resource:
+    source: Source
+    no_description: Aucune description

@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Kezaco\CoreBundle\KezacoCoreBundle(),
             new Kezaco\AdminBundle\KezacoAdminBundle(),

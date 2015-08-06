@@ -1,0 +1,10 @@
+<section class="results">
+  {% for r in pagination %}
+    {% include 'KezacoCoreBundle:Partials:_resource_excerpt.html.twig' with { 'resource': r } %}
+  {% else %}
+    <p>{{ 'app.no_results'|trans({}, 'KezacoCoreBundle') }}</p>
+  {% endfor %}
+  <div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+  </div>
+</section>

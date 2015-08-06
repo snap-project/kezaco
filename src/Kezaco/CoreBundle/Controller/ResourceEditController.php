@@ -15,9 +15,9 @@ use Kezaco\CoreBundle\Form\DocumentResourceType;
 /**
  * Resource controller.
  *
- * @Route("/resource")
+ * @Route("/edit")
  */
-class ResourceController extends Controller
+class ResourceEditController extends Controller
 {
 
     /**

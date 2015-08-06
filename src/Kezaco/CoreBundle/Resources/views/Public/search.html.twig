@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+{% block body_container %}
+  {% include 'KezacoCoreBundle:Partials:_navbar.html.twig'%}
+  {% if pagination is not defined %}
+    <div class="container">
+      <div class="row">
+        <div class="col-m-12 col-t-8 col-d-4 col-m-push-0 col-t-push-2 col-d-push-4 search">
+          <div class="index-search-form">
+            <img alt="Logo" src="{{ asset('bundles/kezacocore/img/logo.svg') }}" class="img-responsive center-block" style="height: 100px; margin-top:150px">
+            {% include 'KezacoCoreBundle:Partials:_search.html.twig' %}
+            <p class="lead text-center">{{ 'app.catch_phrase'|trans({}, 'KezacoCoreBundle') }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="row">
+      <div class="col-m-12 col-d-6 search">
+        {% include 'KezacoCoreBundle:Partials:_search.html.twig' %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-m-12 col-d-6">
+        {% include 'KezacoCoreBundle:Public:_results.html.twig' %}
+      </div>
+    </div>
+  {% endif %}
+
+{% endblock %}

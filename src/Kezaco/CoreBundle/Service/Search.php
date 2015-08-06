@@ -10,24 +10,46 @@ use Kezaco\CoreBundle\Event\SearchEvents;
 
 class Search extends ContainerAware {
 
-    public function search($search, $limit = 100, $offset = 0) {
+    public function search($search) {
 
-        $container = $this->container;
-        $dispatcher = $container->get('event_dispatcher');
+        $finder = $this->container->get('fos_elastica.finder.kezaco.resource');
 
-        $beforeSearchEvent = new BeforeSearchEvent($search, $limit, $offset);
-        $dispatcher->dispatch(SearchEvents::BEFORE_SEARCH, $beforeSearchEvent);
-
-        $searchRepo = $container->get('fos_elastica.manager')
-            ->getRepository('KezacoCoreBundle:Resource')
-        ;
-
-        $results = $searchRepo->find($search);
-
-        $afterSearchEvent = new AfterSearchEvent($search, $results);
-        $dispatcher->dispatch(SearchEvents::AFTER_SEARCH, $afterSearchEvent);
+        $this->dispatchSearchEvent(SearchEvents::BEFORE_SEARCH, $search);
+        $results = $finder->find($search);
+        $this->dispatchSearchEvent(SearchEvents::AFTER_SEARCH, $search, $results);
 
         return $results;
+
     }
+
+    public function searchPaginated($search, $page = 0, $limit = 10) {
+
+        $finder = $this->container->get('fos_elastica.finder.kezaco.resource');
+        $paginator = $this->container->get('knp_paginator');
+
+        $this->dispatchSearchEvent(SearchEvents::BEFORE_SEARCH, $search);
+        $results = $finder->createPaginatorAdapter($search);
+        $this->dispatchSearchEvent(SearchEvents::AFTER_SEARCH, $search, $results);
+
+        return $paginator->paginate($results, $page, $limit);
+    }
+
+    protected function dispatchSearchEvent($eventPhase, $search, $results = null)
+    {
+        switch($eventPhase) {
+            case SearchEvents::BEFORE_SEARCH:
+                $event = new BeforeSearchEvent($search);
+                break;
+            case SearchEvents::AFTER_SEARCH:
+                $event = new AfterSearchEvent($search, $results);
+                break;
+            default:
+                throw new \Exception('Invalid search event phase !');
+        }
+
+        $dispatcher = $this->container->get('event_dispatcher');
+        $dispatcher->dispatch($eventPhase, $event);
+    }
+
 
 }
